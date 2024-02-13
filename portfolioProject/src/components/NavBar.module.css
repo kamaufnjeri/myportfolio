@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&family=Pacifico&family=Poppins&display=swap');
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100vw;
+    padding: 20px;
+}
+.myname {
+    font-size: 40px;
+    font-weight: 600;
+    color: #6a0dad;
+    text-decoration: none;
+    font-family: 'Pacifico', cursive;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    visibility: visible;
+}
+
+.navItem {
+    list-style: none;
+    position: relative;
+}
+.links .navItem::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    border-radius: 5px;
+    width: 0%;
+    background: #6a0dad;
+    transition: all ease 0.3s;
+}
+
+.links .navItem:hover::after {
+    width: 101%;
+}
+a.navlink {
+    text-decoration: none;
+    color: #6a0dad;
+    font-weight: 500;
+    font-size: 24px;
+}
+.baricon {
+    color: #6a0dad;
+    font-size: 40px;
+    display: none;
+    font-weight: 600;
+    margin: 20px 20px 0 0;
+}
+
+@media screen and (max-width: 1050px) {
+    .navbar {
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .visible {
+        transform: scale(1);
+        transition: transform 0.3s ease-out; /* Smooth transition */
+        transform-origin: top right;   
+    }
+      
+    .hidden {
+        transform: scale(0);
+        transition: transform 0.3s ease-in;/* Smooth transition */
+        transform-origin: top right;
+        pointer-events: none; /* Hide element but keep it interactive */
+    }
+    .barlists {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    .baricon {
+        display: block;
+    }
+    .links {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 10px 20px 20px 20px;
+        border-radius: 3px;
+        z-index: 10;
+        background: #6a0dad;
+        box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+    a.navlink {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        font-size: 24px;
+    }
+    .links .navItem::after {
+        background: #fff;
+    }
+    
+}
+@media screen and (max-width: 500px) {
+    .myname {
+        font-size: 26px;
+    }
+}
+@media screen and (max-width: 390px) {
+    .myname {
+        font-size: 20px;
+    }
+}

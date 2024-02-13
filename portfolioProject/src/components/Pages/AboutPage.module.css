@@ -1,0 +1,64 @@
+.about {
+    display: flex;
+    align-items: center;
+    min-height: 70vh;
+    justify-content: center;
+    margin: 20px 0;
+}
+.aboutinfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100vw;
+}
+.aboutheader {
+    text-align: left;
+    width: 40vw;
+    padding: 20px;
+}
+.aboutheader h2 {
+    color: #6a0dad;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.aboutheader h3 {
+    color: #ff4081;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+img {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    border: 20px solid #ff4081;
+}
+
+img:nth-child(1) {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+img:nth-child(2) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+@media screen and (max-width: 900px) {
+    img:nth-child(1) {
+        bottom: 70px;
+    } 
+}
+
+@media screen and (max-width: 750px) {
+    img {
+        visibility: hidden;
+    }
+    .aboutheader {
+        width: 80vw;
+    }
+}
