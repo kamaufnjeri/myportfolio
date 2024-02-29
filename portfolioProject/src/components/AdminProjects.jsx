@@ -2,15 +2,24 @@ import React, { useEffect, useState } from "react";
 import styles from "./AdminProjects.module.css";
 import { handleDeleteRequests, handleGetRequests } from "../Methods/handleApiRequests";
 import {toast} from "react-toastify";
+import DeleteConfirmationModal from "./DeleteConfirmationModal";
+import { Link } from "react-router-dom";
 
 const AdminProjects = () => {
   const [projects, setProjects] = useState([]);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCancel = () => {
+    // Close the modal without deleting
+    setShowModal(false);
+  };
+
   // Sample data for projects
   useEffect(() => {
     const fetchData = async () => {
         const resp = await handleGetRequests("projects/allprojects");
-        console.log(resp)
-        if (resp.status == 200) {
+        if (resp.status === 200) {
             setProjects(resp.data.projects);
         }
         else {
@@ -25,13 +34,15 @@ const AdminProjects = () => {
   const handleDelete = async (id) => {
     const resp = await handleDeleteRequests(`projects/allprojects/${id}`);
 
-    if (resp.status == 404 || resp.status == 500) {
+    if (resp.status === 404 || resp.status === 500) {
       toast.error(resp.data.message);
-    } else if (resp.status == 200) {
+    } else if (resp.status === 200) {
       toast.success(resp.data.message);
+      setShowModal(false);
     } else {
       toast.error("Error deleting! Try again!");
     }
+
   }
   return (
     <div className={styles.maincontent}>
@@ -55,8 +66,14 @@ const AdminProjects = () => {
             <p>{project.title}</p>
             {/* Placeholder for edit/update buttons */}
             <div className={styles.actionbtns}>
-                <button>Edit</button>
-                <button onClick={(e) => handleDelete(project._id)}>Delete</button>             </div>
+              <Link to={`/admindashboard/projects/${project._id}`}><button>Edit</button></Link>
+              <button onClick={() => setShowModal(true)}>Delete</button>
+              <DeleteConfirmationModal
+                isOpen={showModal}
+                onDelete={(e) => handleDelete(project._id)}
+                onCancel={handleCancel}
+              />
+            </div>
           </div>
         ))}
       </div>

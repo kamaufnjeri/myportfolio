@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./AdminProjects.module.css";
 import { handleDeleteRequests, handleGetRequests } from "../Methods/handleApiRequests";
 import {toast} from "react-toastify";
+import { Link } from "react-router-dom";
 
 const AdminTools = () => {
   const [tools, setTools] = useState([]);
@@ -10,7 +11,7 @@ const AdminTools = () => {
     const fetchData = async () => {
         const resp = await handleGetRequests("projects/alltools");
         
-        if (resp.status == 200) {
+        if (resp.status === 200) {
             setTools(resp.data.tools);
         }
         else {
@@ -21,19 +22,6 @@ const AdminTools = () => {
      fetchData();
   }, [tools])
 
-
-  // deleting a tool
-  const handleDelete = async (id) => {
-    const resp = await handleDeleteRequests(`projects/alltools/${id}`);
-
-    if (resp.status == 404 || resp.status == 500) {
-      toast.error(resp.data.message);
-    } else if (resp.status == 200) {
-      toast.success(resp.data.message);
-    } else {
-      toast.error("Error deleting! Try again!");
-    }
-  }
   return (
     <div className={styles.maincontent}>
       {/* Heading */}
@@ -56,8 +44,7 @@ const AdminTools = () => {
             <p>{tool.name}</p>
             {/* Placeholder for edit/update buttons */}
             <div className={styles.actionbtns}>
-                <button>Edit</button>
-                <button onClick={(e) => handleDelete(tool._id)}>Delete</button> 
+                <Link to={`/admindashboard/tools/${tool._id}`}><button>Edit</button></Link>
             </div>
           </div>
         ))}

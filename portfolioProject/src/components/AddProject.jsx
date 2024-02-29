@@ -17,6 +17,7 @@ const AddProject = () => {
       websiteUrl: "",
       challenges: "",
       lessonsLearnt: "",
+      imageUrl: "",
       toolsAndTechnologies: [],
     }
   );
@@ -36,9 +37,9 @@ const AddProject = () => {
 
     const resp = await handlePostRequests("projects/addproject", data);
 
-    if (resp.status == 200 || resp.status == 500) {
+    if (resp.status === 200 || resp.status === 500) {
       toast.error(resp.data.message);
-    } else if (resp.status == 201) {
+    } else if (resp.status === 201) {
       toast.success(resp.data.message);
     } else {
       toast.error("Unknown error. Try again!")
@@ -50,6 +51,7 @@ const AddProject = () => {
       websiteUrl: "",
       challenges: "",
       lessonsLearnt: "",
+      imageUrl: "",
       toolsAndTechnologies: [],
     });
     setSelectedOptions([]);
@@ -59,7 +61,7 @@ const AddProject = () => {
     const fetchData = async () => {
         const resp = await handleGetRequests("projects/alltools");
         
-        if (resp.status == 200) {
+        if (resp.status === 200) {
             setTools(resp.data.tools);
         }
         else {
@@ -136,6 +138,19 @@ const AddProject = () => {
             onChange={(e) => {
               setData({ ...data, websiteUrl: e.target.value})
             }}
+          />
+        </div>
+        <div className={styles.inputbox}> {/* Apply inputbox class */}
+          <label htmlFor="imageUrl">Project image url<span>*</span></label>
+          <input 
+          type="text"
+          value={data.imageUrl}
+          onChange={(e) => {
+            setData({ ...data, imageUrl: e.target.value})
+          }}
+          placeholder="Image Url"
+          id="imageUrl"
+          required
           />
         </div>
         {/* Project challenges */}

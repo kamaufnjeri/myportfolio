@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { handleGetRequests } from "../Methods/handleApiRequests";
 import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
-import SiderBar from "../SiderBar";
-import { useNavigate } from "react-router-dom";
-import AdminProjects from "../AdminProjects";
-import { handleGetRequests } from "../../Methods/handleApiRequests";
- // Import handleGetRequests from your API file
+import SiderBar from "../Components/SiderBar";
+import AddBlog from "../Components/AddBlog";
 
-const AdminProjectsPage = () => {
+export default function AdminAddProjectPage() {
   const navigate = useNavigate();
 
+  // make this route protected using useEffect
   useEffect(() => {
     async function fetchData() {
       try {
@@ -20,24 +20,25 @@ const AdminProjectsPage = () => {
         } else if (resp.status === 404) {
           navigate("/adminlogin");
         } else {
+          // incase of an unknown error create a new error
           throw new Error("Unexpected response");
         }
       } catch (error) {
-        console.error("Error fetching data:", error);
         toast.error("Error fetching data! Please login");
+        // Handle errors here, like displaying an error message or redirecting to home
         navigate("/adminlogin");
       }
     }
 
     fetchData();
-  }, [navigate]); // Added navigate as a dependency to useEffect
+  }, []);
 
   return (
-    <div className={styles.dashboard}>
-      <SiderBar />
-      <AdminProjects />
+    <div>
+      <div className={styles.dashboard}>
+        <SiderBar />
+        <AddBlog />
+      </div>
     </div>
   );
-};
-
-export default AdminProjectsPage;
+}

@@ -14,7 +14,7 @@
     width: 100vw;
 }
 .aboutheader {
-    text-align: left;
+    text-align: justify;
     width: 40vw;
     padding: 20px;
 }
@@ -30,32 +30,32 @@
     font-size: 20px;
 }
 
-img {
+.myimage img {
     width: 30vw;
     height: 30vw;
     border-radius: 50%;
     border: 20px solid #ff4081;
 }
 
-img:nth-child(1) {
+.myimage img:nth-child(1) {
     position: absolute;
     bottom: 0px;
     right: 0px;
 }
-img:nth-child(2) {
+.myimage img:nth-child(2) {
     position: absolute;
     top: 0px;
     left: 0px;
 }
 
 @media screen and (max-width: 900px) {
-    img:nth-child(1) {
+    .myimage img:nth-child(1) {
         bottom: 70px;
     } 
 }
 
 @media screen and (max-width: 750px) {
-    img {
+    .myimage img {
         visibility: hidden;
     }
     .aboutheader {

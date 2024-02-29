@@ -33,13 +33,10 @@ const AddTools = () => {
 
   return (
     <div className={styles.maincontent}>
-      <h2>Add a project</h2>
+      <h2>Add a tool</h2>
       <form className={styles.formbox} onSubmit={handleSubmit}>
-        {" "}
-        {/* Apply formbox class */}
         {/* Tool title */}
         <div className={styles.inputbox}>
-          {" "}
           {/* Apply inputbox class */}
           <label htmlFor="name">
             Tool or Technology name <span>*</span>

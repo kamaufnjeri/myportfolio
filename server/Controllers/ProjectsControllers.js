@@ -37,7 +37,7 @@ module.exports.getAllProjects = async (req, res) => {
             res.status(200).json({ message: "Projects found", projects: projects });
         } else {
             // Return a 200 status with an empty array if no projects were found
-            res.status(200).json({ message: "No projects found", projects: [] });
+            res.status(404).json({ message: "No projects found", projects: [] });
         }
     } catch (error) {
         // Return a 500 status with an error message if an error occurs
@@ -60,7 +60,7 @@ module.exports.getProject = async (req, res) => {
             res.status(200).json({ message: "Project found", project: project });
         } else {
             // Return a 200 status with an empty array if no projects were found
-            res.status(200).json({ message: "No such project" });
+            res.status(404).json({ message: "No such project" });
         }
     } catch (error) {
         // Return a 500 status with an error message if an error occurs
@@ -116,6 +116,6 @@ module.exports.updateProject = async (req, res) => {
     } catch (error) {
         // Return a 500 status with an error message if an error occurs
         console.error("Error updating project:", error);
-        res.status(500).json({ message: "Error updating project", error: error.message });
+        res.status(500).json({ message: "Error updating project", error: error });
     }
 }

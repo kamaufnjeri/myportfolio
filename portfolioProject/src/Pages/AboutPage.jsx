@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./AboutPage.module.css";
-import Button from "../Button";
+import Button from "../Components/Button";
 
 const AboutPage = () => {
   // Index of role to display and write word
@@ -74,12 +74,12 @@ const AboutPage = () => {
             <br />
           </div>
           <div>
-            <Button name="Download CV" />
+            <Button name="View CV" />
           </div>
         </div>
-        <div className="myimage">
-          <img src="coding.jpg" alt="codes" />
-          <img src="helmt.jpg" alt="helmet" />
+        <div className={styles.myimage}>
+          <img src="https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910973/coding_lrydxw.jpg" alt="codes" />
+          <img src="https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910977/helmt_tkixcg.jpg" alt="helmet" />
         </div>
       </div>
     </div>

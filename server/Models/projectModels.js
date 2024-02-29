@@ -19,6 +19,9 @@ const projectSchema = new mongoose.Schema({
     websiteUrl: {
         type: String,
     },
+    imageUrl: {
+        type: String,
+    },
     challenges: {
         type: String,
         default: '',
@@ -40,7 +43,8 @@ const Project = mongoose.model('Project', projectSchema);
 const toolTechnologySchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 });
 

@@ -44,6 +44,28 @@ module.exports.allTools = async (req, res) => {
     }
 }
 
+// get a single tool
+module.exports.getTool = async (req, res) => {
+    try {
+        // Fetch all projects from the database
+        const { id } = req.params;
+
+        const tool = await ToolTechnology.findById(id);
+
+        // Check if tool were found
+        if (tool) {
+            // Return a 200 status with the tool data
+            res.status(200).json({ message: "Tool found", tool: tool });
+        } else {
+            // Return a 200 status with an empty array if no tool were found
+            res.status(404).json({ message: "No such tool" });
+        }
+    } catch (error) {
+        // Return a 500 status with an error message if an error occurs
+        console.error("Error getting tool:", error);
+        res.status(500).json({ message: "Error getting tool", error: error.message });
+    }
+}
 // Function to delete a tool
 module.exports.deleteTool = async (req, res) => {
     try {

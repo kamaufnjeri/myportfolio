@@ -1,46 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AddProject.module.css"; // Import CSS module
-import { handlePostRequests } from "../Methods/handleApiRequests";
+import { handleGetRequests, handlePostRequests, handlePutRequests } from "../Methods/handleApiRequests";
 import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 
-const AddTools = () => {
-  const [data, setData] = useState({
-    name: "",
-  });
+const UpdateTools = () => {
+  // get id from url
+  const { id } = useParams();
+  const [data, setData] = useState({ name: ''});
 
-  const handleSubmit = async (e) => {
+  // to input original data to the input fields
+  useEffect(() => {
+    const fetchData = async () => {
+      const resp = await handleGetRequests(`projects/alltools/${id}`);
 
-    e.preventDefault();
-    try {
-      const resp = await handlePostRequests("projects/addtool", data);
-
-    //handle post errors
-      if (resp.status === 200 || resp.status === 404 || resp.status === 500) {
+      if (resp.status == 404 || resp.status == 500) {
         toast.error(resp.data.message);
-      } else if (resp.status === 201) {
-        console;
-        toast.success(resp.data.message);
+      } else if (resp.status == 200) {
+        setData(resp.data.tool);
       } else {
-        toast.error("Internal Server Error");
+        console.log(resp)
+        toast.error("Unknown error");
       }
-    } catch (error) {
-      console.log(error)
     }
-    
 
-    setData({ name: "" });
-  };
+    fetchData();
+  }, []);
+ 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // submit data
+    const resp = await handlePutRequests(`projects/alltools/${id}`, data);
+
+    console.log(resp)
+
+    if (resp.status === 404 || resp.status === 500) {
+      toast.error(resp.data.message);
+    } else if (resp.status === 200) {
+      setData(resp.data.tool);
+      toast.success(resp.data.message);
+    } else {
+      toast.error("Unknown error");
+    }
+  }
 
   return (
     <div className={styles.maincontent}>
-      <h2>Add a project</h2>
+      <h2>Edit Tool</h2>
       <form className={styles.formbox} onSubmit={handleSubmit}>
-        {" "}
-        {/* Apply formbox class */}
-        {/* Tool title */}
         <div className={styles.inputbox}>
-          {" "}
-          {/* Apply inputbox class */}
           <label htmlFor="name">
             Tool or Technology name <span>*</span>
           </label>
@@ -64,4 +73,4 @@ const AddTools = () => {
   );
 };
 
-export default AddTools;
+export default UpdateTools;

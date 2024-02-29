@@ -7,7 +7,8 @@ const authRoutes = require('./routes/AuthRoutes');
 const cookieParser = require("cookie-parser");
 const adminRouter = require('./Routes/AdminRoutes');
 const projectsRouter = require("./Routes/ProjectsRoutes");
-
+const uploadRouter = require("./Routes/UploadRoutes");
+const blogRouter = require("./Routes/BlogsRoutes");
 dotenv.config();
 
 const app = express();
@@ -38,8 +39,8 @@ app.use(cookieParser());
 app.use("/", authRoutes)
 app.use("/auth", adminRouter);
 app.use("/projects", projectsRouter);
-
-
+app.use("/images", uploadRouter);
+app.use("/blogs", blogRouter);
 // Start the server
 
 app.listen(PORT, () => {

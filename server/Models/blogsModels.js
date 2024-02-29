@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 
-// schema for blogs i will create
 const blogSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        unique,
+        unique: true,
+    },
+    bannerUrl: {
+        type: String,
+        required: true,
     },
     content: {
         type: String,
@@ -15,18 +18,6 @@ const blogSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    views: {
-        type: Number,
-        default: 0,
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now,
-    },
     reviews: [{
         reviewerName: {
             type: String,
@@ -35,16 +26,10 @@ const blogSchema = new mongoose.Schema({
         content: {
             type: String,
             required: true,
-        },
-        date: {
-            type: Date,
-            default: Date.now,
         }
-    }]
-});
+    }, { timestamps: true }], // Timestamps for reviews array
+}, { timestamps: true }); // Timestamps for the entire document
 
 const Blog = mongoose.model('Blog', blogSchema);
 
-
-//export blog
 module.exports = Blog;

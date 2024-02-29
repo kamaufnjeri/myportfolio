@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
-import { handleGetRequests } from '../../Methods/handleApiRequests';
-import { toast } from 'react-toastify';
+import React, { useEffect } from "react";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { handleGetRequests } from "../Methods/handleApiRequests";
+import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
-import AddProject from '../AddProject';
-import SiderBar from '../SiderBar';
+import AddProject from "../Components/AddProject";
+import SiderBar from "../Components/SiderBar";
 
 export default function AdminAddProjectPage() {
   const navigate = useNavigate();
@@ -34,15 +34,12 @@ export default function AdminAddProjectPage() {
     fetchData();
   }, []);
 
- 
-  
-
   return (
     <div>
       <div className={styles.dashboard}>
-        <SiderBar/>  
+        <SiderBar />
         <AddProject />
       </div>
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SiderBar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   AddBlogButton,
   AddFolderButton,
@@ -10,17 +10,20 @@ import {
   SignOutButton,
   ToolsIcon,
 } from "./Icons";
+import { handleGetRequests } from "../Methods/handleApiRequests";
+import { toast } from "react-toastify";
 
 //component for sidebar
 const SiderBar = () => {
   //logout function
+  const navigate = useNavigate();
   const logout = async () => {
     const resp = await handleGetRequests("logout");
-    if (resp.status == 200) {
+    if (resp.status === 200) {
       // successful in fetching logout url
       toast.success(resp.data.message);
       navigate("/");
-    } else if (resp.status == 500) {
+    } else if (resp.status === 500) {
       // error
       toast.error(resp.data.message);
     } else {
@@ -58,7 +61,9 @@ const SiderBar = () => {
         <span>Blogs</span>
       </div>
       <div className={styles.icondetail}>
-        <AddBlogButton />
+        <Link to="/admindashboard/addblog">
+          <AddBlogButton />
+        </Link>
         <span>Add blog</span>
       </div>
       <div className={styles.icondetail}>

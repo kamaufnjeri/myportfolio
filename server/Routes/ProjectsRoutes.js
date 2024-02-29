@@ -1,5 +1,5 @@
 const { addProject, getAllProjects, deleteProject, updateProject, getProject } = require('../Controllers/ProjectsControllers');
-const { addTools, allTools, deleteTool, updateTool } = require('../Controllers/ToolsControllers');
+const { addTools, allTools, deleteTool, updateTool, getTool } = require('../Controllers/ToolsControllers');
 
 const router = require('express').Router();
 
@@ -8,6 +8,8 @@ router.post("/addtool", addTools);
 router.get("/alltools", allTools);
 router.delete("/alltools/:id", deleteTool);
 router.put("/alltools/:id", updateTool);
+router.get("/alltools/:id", getTool);
+
 
 // apis for project
 router.post("/addproject", addProject);
