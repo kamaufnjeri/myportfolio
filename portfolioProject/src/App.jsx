@@ -16,6 +16,8 @@ import AdminToolsPage from "./Pages/AdminToolsPage";
 import AdminUpdateToolPage from "./Pages/AdminUpdateToolPage";
 import AdminUpdateProjectPage from "./Pages/AdminUpdateProjectPage";
 import AdminAddBlogPage from "./Pages/AdminAddBlogPage";
+import AdminBlogsPage from "./Pages/AdminBlogsPage";
+import AdminUpdateBlogPage from "./Pages/AdminUpdateBlogPage";
 
 const App = () => {
   return (
@@ -35,6 +37,7 @@ const App = () => {
         <Route path="/adminlogin" element={<AdminLoginPage />} />
         <Route path="/admindashboard" element={<AdminProjectsPage />} />
         <Route path="/admindashboard/tools" element={<AdminToolsPage />} />
+        <Route path="/admindashboard/blogs" element={<AdminBlogsPage />} />
         <Route
           path="/admindashboard/addproject"
           element={<AdminAddProjectPage />}
@@ -43,6 +46,7 @@ const App = () => {
         <Route path="/admindashboard/addblog" element={<AdminAddBlogPage />} />
         <Route path="/admindashboard/tools/:id" element={<AdminUpdateToolPage />} />
         <Route path="/admindashboard/projects/:id" element={<AdminUpdateProjectPage />} />
+        <Route path="/admindashboard/blogs/:id" element={<AdminUpdateBlogPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

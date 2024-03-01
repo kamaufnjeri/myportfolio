@@ -9,9 +9,11 @@ const AdminProjects = () => {
   const [projects, setProjects] = useState([]);
 
   const [showModal, setShowModal] = useState(false);
+  const [projectId, setProjectId] = useState(null);
 
   const handleCancel = () => {
     // Close the modal without deleting
+    setProjectId(null);
     setShowModal(false);
   };
 
@@ -62,16 +64,28 @@ const AdminProjects = () => {
         {projects.map((project, index) => (
           <div className={styles.tablerow} key={project._id}>
             {/* Displaying project details */}
+            <DeleteConfirmationModal
+                isOpen={showModal}
+                onDelete={(e) => handleDelete(project._id)}
+                id={project._id}
+                onCancel={handleCancel}
+              />
             <p>{index + 1}</p>
             <p>{project.title}</p>
             {/* Placeholder for edit/update buttons */}
             <div className={styles.actionbtns}>
               <Link to={`/admindashboard/projects/${project._id}`}><button>Edit</button></Link>
-              <button onClick={() => setShowModal(true)}>Delete</button>
+              
+              <button onClick={() => {
+                setShowModal(true);
+                setProjectId(project._id)
+
+              }}>Delete</button>
               <DeleteConfirmationModal
-                isOpen={showModal}
-                onDelete={(e) => handleDelete(project._id)}
-                onCancel={handleCancel}
+                  isOpen={showModal}
+                  id={projectId}
+                  onDelete={(e) => handleDelete(projectId)}
+                  onCancel={handleCancel}
               />
             </div>
           </div>

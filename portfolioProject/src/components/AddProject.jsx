@@ -3,12 +3,14 @@ import styles from "./AddProject.module.css"; // Import CSS module
 import Select from "react-select";
 import { handleGetRequests, handlePostRequests } from "../Methods/handleApiRequests";
 import { toast } from "react-toastify";
+import Loading from "./Loading";
 
 // React component to handle adding projects
 const AddProject = () => {
   const [tools, setTools] = useState([]);
   const [options, setOptions] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(
     {
       title: "",
@@ -34,9 +36,8 @@ const AddProject = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent form submission
-
+    setIsLoading(true);
     const resp = await handlePostRequests("projects/addproject", data);
-
     if (resp.status === 200 || resp.status === 500) {
       toast.error(resp.data.message);
     } else if (resp.status === 201) {
@@ -54,6 +55,7 @@ const AddProject = () => {
       imageUrl: "",
       toolsAndTechnologies: [],
     });
+    setIsLoading(false);
     setSelectedOptions([]);
   }
   // fetch tools
@@ -83,6 +85,7 @@ const AddProject = () => {
 
   return (
     <div className={styles.maincontent}>
+      {isLoading && <Loading />}
       <h2>Add a project</h2>
       <form className={styles.formbox} onSubmit={handleSubmit}> {/* Apply formbox class */}
         {/* Project title */}

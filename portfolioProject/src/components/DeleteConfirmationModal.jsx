@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-const DeleteConfirmationModal = ({ isOpen, onDelete, onCancel }) => {
+const DeleteConfirmationModal = ({ isOpen, onDelete, onCancel, id }) => {
 
     // style for buttons
     const closeButtonstyle = {
@@ -49,7 +49,7 @@ const DeleteConfirmationModal = ({ isOpen, onDelete, onCancel }) => {
             }
         }}
       >
-        <h2>Are you sure you want to delete this item?</h2>
+        <h2>Are you sure you want to delete item whose id is {id}?</h2>
         <div>
             <button onClick={onDelete} style={deleteButtonStyle}>Yes</button>
             <button onClick={onCancel} style={closeButtonstyle}>No</button>

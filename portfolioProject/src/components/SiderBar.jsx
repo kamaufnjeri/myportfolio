@@ -57,7 +57,9 @@ const SiderBar = () => {
         <span>Add tool</span>
       </div>
       <div className={styles.icondetail}>
-        <BlogsIcon />
+        <Link to="/admindashboard/blogs">
+          <BlogsIcon />
+        </Link>
         <span>Blogs</span>
       </div>
       <div className={styles.icondetail}>
