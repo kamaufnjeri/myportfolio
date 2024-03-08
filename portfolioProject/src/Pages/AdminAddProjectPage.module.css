@@ -3,5 +3,6 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    width: 100vw;
+    max-width: 97vw;
+    margin-top: 13vh;
 }

@@ -26,6 +26,10 @@ const blogSchema = new mongoose.Schema({
         content: {
             type: String,
             required: true,
+        },
+        date: { 
+            type: Date,
+            default: Date.now,
         }
     }, { timestamps: true }], // Timestamps for reviews array
 }, { timestamps: true }); // Timestamps for the entire document

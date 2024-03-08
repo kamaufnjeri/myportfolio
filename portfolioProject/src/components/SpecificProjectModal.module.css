@@ -19,9 +19,9 @@
 
 .projectcontent {
     position: absolute;
-    top: 60px;
+    top: 14vh;
     right: 20px;
-    width: 80vw;
+    width: 90vw;
     background: #fff;
     padding-bottom: 60px;
     border-radius: 5px;
@@ -39,7 +39,7 @@
 }
 .projectcontent .header {
     background: #6a0dad;
-    width: 80vw;
+    width: 90vw;
     height: 60px;
     border-radius: 5px;
     display: flex;
@@ -68,7 +68,7 @@
 }
 .projectcontent .description {
     opacity: 0;
-    width: 70vw;
+    width: 85vw;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
@@ -79,7 +79,7 @@
 }
 .projectcontent .tools, .urls, .challenges, .lessonslearnt {
     opacity: 0;
-    width: 70vw;
+    width: 85vw;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;

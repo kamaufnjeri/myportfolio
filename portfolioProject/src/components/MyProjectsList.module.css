@@ -1,13 +1,12 @@
 .myprojectsbox {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
 }
 
 .cardbox {
-    width: 27vw;
+    width: 40vw;
     height: auto;
     margin: 10px;
     border-radius: 5px;

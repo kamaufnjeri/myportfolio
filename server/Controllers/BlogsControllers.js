@@ -26,6 +26,30 @@ module.exports.addBlog = async (req, res) => {
     }
 }
 
+module.exports.addReview = async (req, res) => {
+    try {
+        // Extract review details from the request body
+        const reviewData = req.body;
+        const { id } = req.params;
+
+        // Check if blog exists
+        const blog = await Blog.findById(id);
+
+        if (!blog) {
+            return res.status(404).json({ message: 'Blog not found', id: id });
+        }
+
+        blog.reviews.push(reviewData);
+        const updatedBlog = await blog.save();
+        
+        return res.status(201).json({ message: "Review added", updatedBlog: updatedBlog });
+    } catch (error) {
+        // Return a 500 status with an error message if an error occurs
+        console.error("Error adding review:", error);
+        res.status(500).json({ message: "Error adding review", error: error.message });
+    }
+}
+
 module.exports.getAllBlogs = async (req, res) => {
     try {
         // Fetch all projects from the database
@@ -116,5 +140,25 @@ module.exports.updateBlog = async (req, res) => {
         // Return a 500 status with an error message if an error occurs
         console.error("Error updating blog:", error);
         res.status(500).json({ message: "Error updating blog", error: error });
+    }
+}
+
+module.exports.deleteReview = async (req, res) => {
+    const { blogId, reviewId } = req.params;
+
+    try {
+        const result = await Blog.findByIdAndUpdate(
+            blogId,
+            { $pull: { reviews: { _id: reviewId } } },
+            { new: true } // To return the modified document after the update
+          );
+
+          if (result) {
+            res.status(200).json({ message: "Review Deleted", blog: result })
+          } else {
+            res.status(404).json({ message: "Blog or Review not found" });
+          }
+    } catch (error) {
+        res.status(500).json({ message: "Error deleting the review", error: error })
     }
 }

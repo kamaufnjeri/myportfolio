@@ -18,6 +18,7 @@ import AdminUpdateProjectPage from "./Pages/AdminUpdateProjectPage";
 import AdminAddBlogPage from "./Pages/AdminAddBlogPage";
 import AdminBlogsPage from "./Pages/AdminBlogsPage";
 import AdminUpdateBlogPage from "./Pages/AdminUpdateBlogPage";
+import SingleBlogPage from "./Pages/SingleBlogPage";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/myprojects" element={<MyProjectsPage />} />
         <Route path="/contact" element={<ContactMePage />} />
         <Route path="/blogs" element={<MyBlogsPage />} />
+        <Route path="/blogs/:id" element={<SingleBlogPage />} />
         <Route path="/adminlogin" element={<AdminLoginPage />} />
         <Route path="/admindashboard" element={<AdminProjectsPage />} />
         <Route path="/admindashboard/tools" element={<AdminToolsPage />} />

@@ -4,8 +4,14 @@
     align-items: center;
     justify-content: space-between;
     height: 10vh;
-    width: 100vw;
-    padding: 20px;
+    max-width: 100vw;
+    min-width: 100vw;
+    padding: 10px 20px 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    background: #ff4081;
 }
 .myname {
     font-size: 40px;
@@ -53,14 +59,9 @@ a.navlink {
     font-size: 40px;
     display: none;
     font-weight: 600;
-    margin: 20px 20px 0 0;
 }
 
 @media screen and (max-width: 1050px) {
-    .navbar {
-        align-items: flex-start;
-        justify-content: space-between;
-    }
     .visible {
         transform: scale(1);
         transition: transform 0.3s ease-out; /* Smooth transition */
@@ -81,6 +82,7 @@ a.navlink {
     }
     .baricon {
         display: block;
+        z-index: 10;
     }
     .links {
         display: flex;
@@ -88,12 +90,12 @@ a.navlink {
         flex-direction: column;
         justify-content: flex-end;
         padding: 10px 20px 20px 20px;
+        position: absolute;
+        top: 60px;
         border-radius: 3px;
         z-index: 10;
         background: #6a0dad;
         box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.3);
-        border-radius: 4px;
-        margin-top: 10px;
     }
     a.navlink {
         text-decoration: none;
@@ -108,11 +110,18 @@ a.navlink {
 }
 @media screen and (max-width: 500px) {
     .myname {
-        font-size: 26px;
+        font-size: 30px;
+    }
+    .baricon {
+        font-size: 30px;
     }
 }
 @media screen and (max-width: 390px) {
+    
     .myname {
-        font-size: 20px;
+        font-size: 24px;
+    }
+    .baricon {
+        font-size: 24px;
     }
 }

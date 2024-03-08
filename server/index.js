@@ -25,7 +25,7 @@ mongoose
   console.log("Db connection successfull");
 })
 .catch((err) => {
-  console.log("Error connecting to db" + err);
+  console.log("Error connecting to db " + err);
 })
 // Allow requests from http://localhost:3000
 app.use(cors({
