@@ -3,7 +3,7 @@ import styles from "./forms.module.css";
 import Button from "../Components/Button";
 import { handlePostRequests } from "../Methods/handleApiRequests";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 // admin login page components
 export default function AdminLoginPage() {

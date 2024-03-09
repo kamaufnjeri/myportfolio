@@ -28,7 +28,7 @@ h2 {
     transition: top 0.3s ease;
     opacity: 0.7;
 }
-.inputbox input {
+.inputbox input, .inputbox textarea {
     border: none;
     outline: none;
     border: 2px solid #000;
@@ -43,12 +43,22 @@ h2 {
     left: 0;
 }
 
+.inputbox textarea {
+    min-height: 30vh;
+    min-width: 40vw;
+}
+
 .inputbox input:focus,
 .inputbox input:hover {
     border-color: #6a0dad;
     cursor: pointer;
 }
 
+.inputbox textarea:focus,
+.inputbox textarea:hover {
+    border-color: #6a0dad;
+    cursor: pointer;
+}
 .inputbox input:focus + span.label,
 .inputbox input:valid + span.label {
     top: -15px;
@@ -59,7 +69,16 @@ h2 {
     z-index:5;
     opacity: 1;
 }
-
+.inputbox textarea:focus + span.label,
+.inputbox textarea:valid + span.label {
+    top: -15px;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 6px;
+    z-index:5;
+    opacity: 1;
+}
 @media screen and (max-width: 500px) {
     .inputbox input {
         width: 250px;

@@ -9,6 +9,7 @@ const adminRouter = require('./Routes/AdminRoutes');
 const projectsRouter = require("./Routes/ProjectsRoutes");
 const uploadRouter = require("./Routes/UploadRoutes");
 const blogRouter = require("./Routes/BlogsRoutes");
+const contactMeRouter = require("./Routes/ContactMeRoutes");
 dotenv.config();
 
 const app = express();
@@ -41,6 +42,7 @@ app.use("/auth", adminRouter);
 app.use("/projects", projectsRouter);
 app.use("/images", uploadRouter);
 app.use("/blogs", blogRouter);
+app.use("/contactme", contactMeRouter);
 // Start the server
 
 app.listen(PORT, () => {

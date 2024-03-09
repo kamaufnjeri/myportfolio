@@ -13,7 +13,6 @@ const MyProjectsPage = () => {
     justifyContent: "center",
     width: "90vw",
     flexDirection: "column",
-    border: "2px solid #ccc",
     margin: "15vh 20px 20px",
     borderRadius: "5px",
     padding: "10px",

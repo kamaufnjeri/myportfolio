@@ -1,0 +1,10 @@
+.notFound {
+    position: absolute;
+    top: 13vh;
+    left: 0;
+}
+.notFound img {
+    width: 90vw;
+    max-height: calc(100vh - 16vh);
+}
+

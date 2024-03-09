@@ -1,0 +1,149 @@
+.mainContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    flex-direction: column;
+    margin: 15vh 20px 20px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: justify;
+}
+
+.mainContent h2 {
+    font-size: 30px;
+}
+.formBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.formBox input, .formBox textarea {
+    border: none;
+    outline: none;
+    width: 350px;
+    min-width: 200px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin: 20px 20px 20px 0;
+}
+.formBox input:focus,
+.formBox textarea:focus {
+    border-color: #007bff;
+}
+.formBox input {
+    height: 8vh;
+}
+.formBox textarea {
+    min-height: 30vh;
+}
+.sendBtn {
+    display: flex;
+    width: 350px;
+    height: 8vh;
+    padding: 5px;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 500;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    color: #ff4081;
+    border: 2px solid #ff4081;
+    cursor: pointer;
+}
+.sendBtn:hover {
+    background-color: #ff4081;
+    color: #fff;
+}
+.sendBtn:hover .sendIcon {
+    color: #fff;
+}
+.sendIcon {
+    font-size: 30px;
+    color: #ff4081;
+}
+
+@media screen and (max-width: 760px) {
+    .formBox {
+        grid-template-columns: 1fr;
+    }
+ 
+}
+@media screen and (max-width: 500px) {
+    .formBox input, .formBox textarea, .sendBtn {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .formBox input, .formBox textarea, .sendBtn {
+        width: 200px;
+    }
+}
+
+.findMe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+
+.findMe P {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.findMe .icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+.icons .icon {
+    display: flex;
+    margin: 20px;
+    text-decoration: none;
+    align-items: center;
+    gap: 20px;
+}
+.icon span {
+   color: #000;
+   font-size: 18px;
+   font-weight: 500;
+   visibility: hidden;
+   text-decoration: none;
+}
+
+.icon:hover span {
+    visibility: visible;
+}
+
+a img {
+    width: 100px;
+    height: auto;
+}
+
+@media  screen and (max-width: 930px) {
+    .findMe .icons {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media  screen and (max-width: 720px) {
+    .findMe .icons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media  screen and (max-width: 500px) {
+    .findMe .icons {
+        grid-template-columns: 1fr;
+    }
+}
