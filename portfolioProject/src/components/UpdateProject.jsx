@@ -13,6 +13,7 @@ const UpdateProject = () => {
   const [data, setData] = useState({
     title: "",
     description: "",
+    videoUrl: "",
     sourceCodeUrl: "",
     websiteUrl: "",
     challenges: "",
@@ -148,6 +149,18 @@ const UpdateProject = () => {
             value={data.description}
             onChange={(e) => {
               setData({ ...data, description: e.target.value })
+            }}
+          />
+        </div>
+        <div className={styles.inputbox}> {/* Apply inputbox class */}
+          <label htmlFor="videoUrl">Project Video Code</label>
+          <textarea
+            id="videoUrl"
+            placeholder="Video Code"
+            rows={6}
+            value={data.videoUrl}
+            onChange={(e) => {
+              setData({ ...data, videoUrl: e.target.value})
             }}
           />
         </div>

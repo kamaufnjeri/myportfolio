@@ -11,6 +11,10 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    videoUrl: {
+        type: String,
+        required: true,
+    },
     sourceCodeUrl: {
         type: String,
         required: true,

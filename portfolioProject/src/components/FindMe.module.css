@@ -1,0 +1,51 @@
+.findMe {
+    position: fixed;
+    top: 30%;
+    left: 0px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 80px;
+    background-color: #fff;
+}
+.findMe .icons {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.icons .icon {
+    display: flex;
+    margin: 0 0 10px 10px;
+    text-decoration: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    flex-direction: column-reverse;
+    width: 65px;
+}
+.icon:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.icon span {
+   color: #000;
+   font-size: 14px;
+   font-weight: 500;
+   visibility: hidden;
+   text-decoration: none;
+}
+
+.icon:hover span {
+    visibility: visible;
+}
+
+a img {
+    width: 30px;
+    height: auto;
+    color: #000;
+}

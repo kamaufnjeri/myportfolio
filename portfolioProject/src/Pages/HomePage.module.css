@@ -1,0 +1,93 @@
+.about {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    background-image: url('https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910973/coding_lrydxw.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: change 60s infinite ease-in-out;
+}
+
+@keyframes change {
+    50% {
+        background-image: url('accountant.jpg');  
+    }
+    100% {
+        background-image: url('https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910973/coding_lrydxw.jpg');
+
+    }
+  
+}
+.aboutinfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    margin-left: 80px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.aboutheader {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    
+}
+.aboutheader h2 {
+    font-weight: bolder;
+    font-size: 60px;
+    color: #fff;
+}
+.aboutheader h2 span {
+    color: #6a0dad;
+}
+.aboutheader h3 {
+    color: #f9a825;
+    font-weight: bolder;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.aboutheader .btn {
+    border-radius: 5px;
+    border: 2px solid #6a0dad;
+    padding: 5px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #6a0dad;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #6a0dad;
+    color: #fff;
+}
+a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+    .aboutheader h2 {
+        font-size: 40px;
+    }
+    .aboutheader h3 {
+        font-size: 30px;
+    }
+}
+@media  screen and (max-width: 500px) {
+    .aboutheader h2 {
+        font-size: 30px;
+    }
+    .aboutheader h3 {
+        font-size: 20px;
+    }
+    .aboutheader .btn {
+        font-size: 20px;
+    }
+}

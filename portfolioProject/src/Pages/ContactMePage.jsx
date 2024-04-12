@@ -1,11 +1,12 @@
 import React, { useRef, useState } from "react";
 import styles from "./ContactMePage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import { handlePostRequests } from "../Methods/handleApiRequests";
 import Loading from "../Components/Loading";
 import { Link } from "react-router-dom";
+import FindMe from "../Components/FindMe";
 
 const ContactMePage = () => {
   // usestate to handle form data
@@ -56,89 +57,51 @@ const ContactMePage = () => {
   };
 
   return (
-    <div className={styles.mainContent}>
-      {isLoading && <Loading />}
-      <h2>Contact me</h2>
-      <p>
-        Feel free to get in touch with me if you have any questions, feedback,
-        or just want to say hello! 😊📧
-      </p>
-      <form onSubmit={(e) => handleSubmit(e)} className={styles.formBox}>
-        <input
-          onChange={(e) => setData({ ...data, name: e.target.value })}
-          type="text"
-          required
-          value={data.name}
-          placeholder="Enter your name"
-        />
-        <input
-          onChange={(e) => setData({ ...data, email: e.target.value })}
-          type="text"
-          required
-          value={data.email}
-          placeholder="Enter your email"
-        />
-        <textarea
-          onChange={(e) => setData({ ...data, message: e.target.value })}
-          type="text"
-          required
-          value={data.message}
-          placeholder="Enter the message..."
-        ></textarea>
-        <button className={styles.sendBtn}>
-          <FontAwesomeIcon icon={faPaperPlane} className={styles.sendIcon} />
-          Send
-        </button>
-      </form>
-      <div className={styles.findMe}>
-        <p>Feel free to reach out through any of these platforms:</p>
-        <div className={styles.icons}>
-          <div className={styles.icon}>
-            <Link
-              to="https://github.com/kamaufnjeri"
-              target="_blank"
-              className={styles.link}
-            >
-              <img src="/github.png" alt="github image" />
-            </Link>
-            <span>Github</span>
-          </div>
-
-          <div className={styles.icon}>
-            <Link
-              to="mailto:kamaufnjeri2019@gmail.com"
-              target="_blank"
-              className={styles.link}
-            >
-              <img src="/gmail.png" alt="gmail image" />
-            </Link>
-            <span>Gmail</span>
-          </div>
-
-          <div className={styles.icon}>
-            <Link
-              to="https://www.linkedin.com/in/florence-kamau-696874241/"
-              target="_blank"
-              className={styles.link}
-            >
-              <img src="/linkedin.png" alt="linkedin image" />
-            </Link>
-            <span>Linkedin</span>
-          </div>
-
-          <div className={styles.icon}>
-            <Link
-              to="https://twitter.com/kamaufnjeri"
-              target="_blank"
-              className={styles.link}
-            >
-              <img src="/twitter.png" alt="twitter image" />
-            </Link>
-            <span>Twitter</span>
+    <div className={styles.background}>
+      <div className={styles.mainContainer}>
+        <FindMe />
+        {isLoading && <Loading />}
+        <div className={styles.contactBox}>
+          <h1>Contact me</h1>
+          <p>
+            Feel free to get in touch with me if you have any questions, feedback,
+            or just want to say hello!
+          </p>
+          <form onSubmit={(e) => handleSubmit(e)} className={styles.formBox}>
+            <input
+              onChange={(e) => setData({ ...data, name: e.target.value })}
+              type="text"
+              required
+              value={data.name}
+              placeholder="Enter your name"
+            />
+            <input
+              onChange={(e) => setData({ ...data, email: e.target.value })}
+              type="text"
+              required
+              value={data.email}
+              placeholder="Enter your email"
+            />
+            <textarea
+              onChange={(e) => setData({ ...data, message: e.target.value })}
+              type="text"
+              required
+              value={data.message}
+              placeholder="Enter the message..."
+            ></textarea>
+            <button className={styles.sendBtn}>
+              <FontAwesomeIcon icon={faPaperPlane} className={styles.sendIcon} />
+              Send
+            </button>
+          </form>
+          <div>
+            <Link to='/blogs'><span className={styles.btn}>Blogs <FontAwesomeIcon icon={faArrowRight} /></span></Link>
           </div>
         </div>
+
       </div>
     </div>
+
   );
 };
 

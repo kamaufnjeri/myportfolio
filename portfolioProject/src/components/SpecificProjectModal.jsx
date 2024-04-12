@@ -59,6 +59,7 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
         <div className={descriptionStyle}>
           <h4>About the project: </h4>
           <p>{project.description}</p>
+          {project.videoUrl && <div className={styles.videoBox} dangerouslySetInnerHTML={{ __html: project.videoUrl }}></div>}
         </div>
         <div className={toolsStyle}>
           <h4>Tools used during development: </h4>

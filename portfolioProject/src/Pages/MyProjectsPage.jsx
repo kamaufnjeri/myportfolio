@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import MyProjectsList from '../Components/MyProjectsList';
+import styles from './MyProjectsPage.module.css'
 import { handleGetRequests } from '../Methods/handleApiRequests';
+import FindMe from '../Components/FindMe';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const MyProjectsPage = () => {
   // Using state for getting projects
   const [data, setData] = useState([]);
-
-  // styles variables
-  const mainContentStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "90vw",
-    flexDirection: "column",
-    margin: "15vh 20px 20px",
-    borderRadius: "5px",
-    padding: "10px",
-    textAlign: "justify",
-  }
 
   // useEffect hook to retrieve projects from MongoDB
   useEffect(() => {
@@ -38,12 +30,24 @@ const MyProjectsPage = () => {
   }, []); // Empty dependency array to ensure useEffect runs only once
 
   return (
-    <div style={mainContentStyle}>
-      <h2>🌟 Welcome to My Projects Portfolio! 🌟</h2>
-      <p>
-        Here are some of the projects I have been involved in over the past year at ALX for my portfolio page.
-      </p>
-      <MyProjectsList projects={data} />
+    <div className={styles.background}>
+      <div className={styles.mainContainer}>
+        <FindMe />
+        <div className={styles.myprojects}>
+          <h1>My projects</h1>
+          <p>
+            Explore a showcase of my ALX journey over the past year,
+            featuring a diverse range of captivating projects. From
+            innovative initiatives to collaborative endeavors, each
+            represents a milestone in my pursuit of excellence
+          </p>
+          <MyProjectsList projects={data} />
+          <div>
+            <Link to='/contact'><span className={styles.btn}>Contact <FontAwesomeIcon icon={faArrowRight} /></span></Link>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 };

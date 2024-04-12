@@ -1,89 +1,74 @@
-import { useEffect, useState } from "react";
-import styles from "./AboutPage.module.css";
-import Button from "../Components/Button";
+import React from 'react';
+import styles from './AboutPage.module.css';
+import FindMe from '../Components/FindMe';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+const mySkills = [
+  "Python", "JavaScript", "C",
+  "Bash", "Linux", "DevOps",
+  "MySQL", "MongoDB", "Flask",
+  "Express", "React", "Git (GitHub)",
+  "QuickBooks", "Sage 50 Accounts", "Tally Prime",
+];
+
+const myHobbies = [
+  "Reading", "Writing", "Swimming"
+]
 
 const AboutPage = () => {
-  // Index of role to display and write word
-  const [index, setIndex] = useState(0);
-  const [wordIndex, setWordIndex] = useState(0);
-  // Track whether we are currently writing or erasing
-  const [isWriting, setIsWriting] = useState(true);
-  // Track the direction of the animation (1 for writing, -1 for erasing)
-  const [animationDirection, setAnimationDirection] = useState(1);
 
-  // Array showing my roles
-  const roles = [
-    "A Software Developer.",
-    "An Accountant.",
-    "A Web Developer.",
-    "A Backend Developer.",
-  ];
-
-  // Role to display
-  const role = roles[index];
-
-  // Function to alternate roles
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Update word index based on animation direction
-      setWordIndex((prevWordIndex) => prevWordIndex + animationDirection);
-
-      // Check if we've reached the end of the role
-      if (wordIndex >= role.length && isWriting) {
-        // If writing, switch to erasing
-        setIsWriting(false);
-        setAnimationDirection(-1); // Change animation direction to erase
-      } else if (wordIndex <= 0 && !isWriting) {
-        // If erasing, switch to writing and move to the next role
-        setIndex((prevIndex) => (prevIndex + 1) % roles.length);
-        setIsWriting(true);
-        setAnimationDirection(1); // Change animation direction to write
-      }
-    }, 200); // Adjust the interval for smoother animation
-
-    // Cleanup interval on component unmount
-    return () => clearInterval(interval);
-  }, [isWriting, role, roles, wordIndex, animationDirection]);
-
-  // Render the component
   return (
     <div className={styles.about}>
-      <div className={styles.aboutinfo}>
-        <div className={styles.aboutheader}>
-          <h2>👋 Hey there! I'm Florence Kamau.</h2>
-          {/* Display the current portion of the role */}
-          <h3>{role.substring(0, wordIndex + 1)}|</h3>
-          <div>
-            <p>
-              🎓 Graduating with a degree in B.Com Accounting from Kenyatta
-              University was just the beginning. My journey into the world of
-              problem-solving began there. 💡
-            </p>
-            <br />
-            <p>
-              🚀 Fast forward to today, and I'm on an exciting path as a
-              software engineer. It all started when I stumbled upon ALX, where
-              I discovered my passion for creating innovative solutions. 💻
-            </p>
-            <br />
-            <p>
-              ⏳ Currently, I'm immersed in the final stretch of ALX's software
-              engineering course, specializing in backend development. Every day
-              is an opportunity to learn, grow, and make a real impact. 🌟
-            </p>
-            <br />
+      <div className={styles.mainContainer}>
+        <FindMe />
+        <div className={styles.aboutme}>
+          <div className={styles.aboutmeinfo}>
+            <div className={styles.aboutmetext}>
+              <h1>My Journey to Software Engineering: From Numbers to Innovation</h1>
+              <p>
+                I translate ideas into elegant code, building robust and scalable backend systems.
+                My passion lies in uncovering efficient solutions to complex challenges.
+                <br />
+                <br />
+                Equipped with a strong analytical background from my B.Com Accounting degree at
+                Kenyatta University and honed technical skills from ALX, I'm adept at designing and
+                implementing backend architecture that empowers seamless user experiences.
+                <br />
+                <br />
+                Always learning and pushing boundaries, I'm eager to collaborate on exciting projects
+                with a team that shares my dedication to innovation.
+              </p>
+
+            </div>
+            <div className={styles.skills}>
+              <h1>My Skills</h1>
+              <div className={styles.myLists}>
+                {mySkills && mySkills.map(skill => (
+                  <span>{skill}</span>
+                ))}
+              </div>
+            </div>
+            <div className={styles.hobbies}>
+              <h1>My hobbies</h1>
+              <div className={styles.myLists}>
+                {myHobbies && myHobbies.map(hobby => (
+                  <span>{hobby}</span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <Link to='/myprojects'><span className={styles.btn}>Projects <FontAwesomeIcon icon={faArrowRight} /></span></Link>
+            </div>
           </div>
-          <div>
-            <Button name="View CV" />
+          <div className={styles.imageCont}>
+            <img src="flora.jpg" alt="my image" />
           </div>
-        </div>
-        <div className={styles.myimage}>
-          <img src="https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910973/coding_lrydxw.jpg" alt="codes" />
-          <img src="https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910977/helmt_tkixcg.jpg" alt="helmet" />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AboutPage;
+export default AboutPage

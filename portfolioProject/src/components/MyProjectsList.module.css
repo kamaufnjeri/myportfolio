@@ -1,81 +1,116 @@
 .myprojectsbox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row wrap;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-flow: row wrap;
+}
+.projectBox {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.projectInfo {
+    width: 70%;
+}
+.btn {
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 2px solid #6a0dad;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #6a0dad;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
 }
 
+.btn:hover {
+  background: #6a0dad;
+  color: #fff;
+}
 .cardbox {
-    width: 40vw;
-    height: auto;
-    margin: 10px;
-    border-radius: 5px;
-    position: relative;
-    cursor: pointer;
-    border: 2px solid #ccc;
+  width: 40vw;
+  height: auto;
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #ccc;
 }
 .cardimg {
-    border-radius: 5px;
-    width: 100%;
-    height: 100%;
-    display: block;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .cardbox .namecontainer {
-    position: absolute;
-    bottom: 0;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #ff4081;
-    font-weight: 600;
-    transition: transform 0.3s ease-in-out;
-    transform-origin: bottom;
-    transform: scaleY(0);
-    border-radius: 5px;
-    font-size: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #ff4081;
+  font-weight: 600;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  border-radius: 5px;
+  font-size: 20px;
 }
 
 .cardbox:hover .namecontainer {
-    transform: scaleY(1);
-    background-color: rgba(0, 0, 0, 0.9); /* Adjust the background color and opacity as needed */
+  transform: scaleY(1);
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.9
+  ); /* Adjust the background color and opacity as needed */
 }
 
 .namecontainer a {
-    font-weight: 600;
+  font-weight: 600;
 }
 .viewbtn {
-    border: none;
-    outline: none;
-    font-size: 20px;
-    font-weight: 500;
-    color: #6a0dad;
-    background: transparent;
-    text-decoration: underline;
-    cursor: pointer;
+  border: 2px solid #6a0dad;
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6a0dad;
+  background: transparent;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 950px) {
-    .myprojectsbox {
-        flex-direction: column;
-    }
-    .cardbox {
-        width: 50vw;
-    }
+  .myprojectsbox {
+    flex-direction: column;
+  }
+  .projectBox {
+    flex-direction: column;
+  }
+  .cardbox {
+    width: 50vw;
+  }
 }
 
 @media screen and (max-width: 500px) {
-    .cardbox {
-        width: 70vw;
-    }
-    .cardbox .namecontainer {
-        font-size: 16px;
-    }
-    .namecontainer .viewbtn {
-        font-size: 16px;
-    }
+  .cardbox {
+    width: 70vw;
+  }
+  .cardbox .namecontainer {
+    font-size: 16px;
+  }
+  .namecontainer .viewbtn {
+    font-size: 16px;
+  }
 }

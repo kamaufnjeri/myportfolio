@@ -1,7 +1,7 @@
-import NavBar from "./Components/navBar";
+import NavBar from "./Components/NavBar";
 import "./App.css";
 import { Link, Route, Routes } from "react-router-dom";
-import AboutPage from "./Pages/AboutPage";
+import HomePage from "./Pages/HomePage";
 import MyBlogsPage from "./Pages/MyBlogsPage";
 import ContactMePage from "./Pages/ContactMePage";
 import MyProjectsPage from "./Pages/MyProjectsPage";
@@ -19,6 +19,7 @@ import AdminAddBlogPage from "./Pages/AdminAddBlogPage";
 import AdminBlogsPage from "./Pages/AdminBlogsPage";
 import AdminUpdateBlogPage from "./Pages/AdminUpdateBlogPage";
 import SingleBlogPage from "./Pages/SingleBlogPage";
+import AboutPage from "./Pages/AboutPage";
 
 const App = () => {
   return (
@@ -30,8 +31,8 @@ const App = () => {
       />
       <NavBar />
       <Routes>
-        <Route path="/" element={<AboutPage />} />
-
+        <Route path="/" element={<HomePage />} />
+        <Route path='/about' element={<AboutPage/>}/>
         <Route path="/myprojects" element={<MyProjectsPage />} />
         <Route path="/contact" element={<ContactMePage />} />
         <Route path="/blogs" element={<MyBlogsPage />} />

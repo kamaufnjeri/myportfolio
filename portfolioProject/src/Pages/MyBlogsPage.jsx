@@ -1,34 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import MyProjectsList from '../Components/MyProjectsList';
+import React, { useEffect, useState } from 'react';
+import MyBlogs from '../Components/MyBlogs'
+import styles from './MyProjectsPage.module.css'
 import { handleGetRequests } from '../Methods/handleApiRequests';
-import MyBlogs from '../Components/MyBlogs';
+import FindMe from '../Components/FindMe';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-export default function MyBlogsPage() {
-  // Using state for getting projects
-  const [data, setData] = useState([]);
+const MyBlogsPage = () => {
 
-  // styles variables
-  const mainContentStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "90vw",
-    flexDirection: "column",
-    margin: "15vh 20px 20px",
-    borderRadius: "5px",
-    padding: "10px",
-    textAlign: "justify",
-  }
-
-  
   return (
-    <div style={mainContentStyle}>
-      <h2>🌟 Welcome to My Blog Page! 🌟</h2>
-      <p>
-      📝 Dive into My World: Explore a Collection of My Blogs.
-        Join me on a journey of words, where each blog is a window into my thoughts and experiences.
-      </p>
-      <MyBlogs />
+    <div className={styles.background}>
+      <div className={styles.mainContainer}>
+        <FindMe />
+        <div className={styles.myprojects}>
+          <h1>My Blogs</h1>
+          <p>
+            Dive into My World: Explore a Collection of My Blogs.
+            Join me on a journey of words, where each blog is a window into my thoughts and experiences.
+          </p>
+          <MyBlogs />
+          <div>
+            <Link to='/'><span className={styles.btn}>Home <FontAwesomeIcon icon={faArrowRight} /></span></Link>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
-}
+};
+
+export default MyBlogsPage;

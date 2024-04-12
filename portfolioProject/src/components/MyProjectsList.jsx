@@ -8,6 +8,7 @@ const MyProjectsList = ({ projects }) => {
             {projects && projects.map(project => (
                 <SingleProjectCard key={project._id} project={project} />
             ))}
+            
         </div>
     );
 };
