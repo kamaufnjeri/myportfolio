@@ -4,7 +4,7 @@ import { handleGetRequests } from "../Methods/handleApiRequests";
 import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
-import UpdateProject from "../components/UpdateProject";
+import UpdateProject from "../Components/UpdateProject";
 
 export default function AdminUpdateProjectPage() {
   const navigate = useNavigate();
