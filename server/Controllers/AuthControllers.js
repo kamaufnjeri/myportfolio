@@ -34,7 +34,7 @@ module.exports.register = async (req, res) => {
       const token = createjwt(newUser);
 
       // Set JWT token as a cookie
-      res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+      res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000, sameSite: 'None', secure: true });
 
       // Respond with success message
       res
