@@ -52,6 +52,7 @@ const App = () => {
         <Route path="/admindashboard/blogs/:id" element={<AdminUpdateBlogPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      
     </div>
   );
 };

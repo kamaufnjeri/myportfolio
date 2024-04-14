@@ -13,7 +13,7 @@
 
 @keyframes change {
   50% {
-    background-image: url("accountant.jpg");
+    background-image: url("https://res.cloudinary.com/dpbkthtxd/image/upload/v1713101850/accountant_f2w23o.jpg");
   }
   100% {
     background-image: url("https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910973/coding_lrydxw.jpg");
@@ -133,6 +133,11 @@
   background: #6a0dad;
   color: #fff;
 }
+@media screen and (max-width: 620px) {
+  .sendBtn {
+    width: 230px;
+  }
+}
 
 @media screen and (max-width: 550px) {
   .mainContainer {
@@ -140,6 +145,7 @@
     margin-left: 0;
     width: 100vw;
   }
+ 
 }
 @media screen and (max-width: 300px) {
   .formBox input,

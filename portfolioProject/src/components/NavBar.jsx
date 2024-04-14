@@ -19,7 +19,7 @@ const NavBar = () => {
         <div className={styles.navbar}>
             <div>
                 <li className={styles.navItem}>
-                    <NavLink to="/" className={styles.myname}>Kamau F. Njeri</NavLink>
+                    <NavLink to="/admindashboard" className={styles.myname}>Kamau F. Njeri</NavLink>
                 </li>
             </div>
             <div className={styles.barlists}>
