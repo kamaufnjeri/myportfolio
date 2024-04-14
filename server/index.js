@@ -30,7 +30,7 @@ mongoose
 })
 // Allow requests from http://localhost:3000
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://kamaufnjeri.netlify.app/',
   credentials: true,
 }));
 

@@ -16,7 +16,7 @@ export const handlePostRequests = async (url, data) => {
 };
 
 export const handleMultiPartPostRequest = async (url, formData) => {
-    const urlRequest = `http://localhost:3000/${url}`;
+    const urlRequest = `https://myportfolio-y9w4.onrender.com/${url}`;
 
     try {
       const response = await axios.post(urlRequest, formData, {
