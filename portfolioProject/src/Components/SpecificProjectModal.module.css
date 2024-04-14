@@ -188,15 +188,24 @@ a.link:hover {
 }
 @media screen and (max-width: 650px) {
   .projectcontent {
-    width: calc(100vw - 40px);
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
   }
   .projectcontent .header {
-    width: calc(100vw - 40px);
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  iframe {
+    width: 400px;
+    height: auto;
   }
 }
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 500px) {
   iframe {
-    width: 250px;
+    width: 200px;
     height: auto;
   }
 }
