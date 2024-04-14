@@ -186,7 +186,14 @@ a.link:hover {
     height: auto;
   }
 }
-
+@media screen and (max-width: 650px) {
+  .projectcontent {
+    width: calc(100vw - 40px);
+  }
+  .projectcontent .header {
+    width: calc(100vw - 40px);
+  }
+}
 @media screen and (max-width: 600px) {
   iframe {
     width: 250px;
