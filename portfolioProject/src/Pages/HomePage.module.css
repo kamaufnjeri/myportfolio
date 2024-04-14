@@ -80,14 +80,8 @@ a {
         font-size: 30px;
     }
 }
-@media  screen and (max-width: 500px) {
-    .aboutheader h2 {
-        font-size: 30px;
-    }
-    .aboutheader h3 {
-        font-size: 20px;
-    }
-    .aboutheader .btn {
-        font-size: 20px;
+@media screen and (max-width: 550px) {
+    .aboutinfo {
+        margin-left: 0;
     }
 }

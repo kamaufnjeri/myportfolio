@@ -9,6 +9,9 @@
     align-items: center;
     flex-direction: column;
 }
+.maincontent p {
+    color: #000000;
+}
 .table {
     width: 90%;
     display: flex;

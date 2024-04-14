@@ -32,7 +32,7 @@
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
   border-radius: 5px; /* Optional rounded corners */
   z-index: 2;
-  margin-top: 8vh;
+  margin-top: calc(10vh + 10px);
   margin-left: 80px;
   height: 80vh; /* Set card height explicitly */
   overflow: hidden; /* Clip content within the card */
@@ -85,7 +85,7 @@
   border-color: #007bff;
 }
 .formBox input {
-  height: 8vh;
+  height: 50px;
 }
 .formBox textarea {
   min-height: 30vh;
@@ -93,20 +93,21 @@
 .sendBtn {
   display: flex;
   width: 350px;
-  height: 8vh;
+  height: 50px;
   padding: 5px;
   background-color: transparent;
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 500;
   align-items: center;
+  flex-direction: row-reverse;
   justify-content: space-evenly;
   border-radius: 5px;
-  color: #ff4081;
-  border: 2px solid #ff4081;
+  color: #f9a825;
+  border: 2px solid #f9a825;
   cursor: pointer;
 }
 .sendBtn:hover {
-  background-color: #ff4081;
+  background-color: #f9a825;
   color: #fff;
 }
 .sendBtn:hover .sendIcon {
@@ -114,7 +115,7 @@
 }
 .sendIcon {
   font-size: 30px;
-  color: #ff4081;
+  color: #f9a825;
 }
 .btn {
   border-radius: 5px;
@@ -132,19 +133,14 @@
   background: #6a0dad;
   color: #fff;
 }
-@media screen and (max-width: 760px) {
-  .formBox {
-    grid-template-columns: 1fr;
-  }
-}
-@media screen and (max-width: 600px) {
-  .formBox input,
-  .formBox textarea,
-  .sendBtn {
-    width: 200px;
-  }
-}
 
+@media screen and (max-width: 550px) {
+  .mainContainer {
+    margin-top: calc(10vh + 90px);
+    margin-left: 0;
+    width: 100vw;
+  }
+}
 @media screen and (max-width: 300px) {
   .formBox input,
   .formBox textarea,

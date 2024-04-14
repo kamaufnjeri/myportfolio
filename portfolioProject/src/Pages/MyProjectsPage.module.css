@@ -33,7 +33,7 @@
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
   border-radius: 5px; /* Optional rounded corners */
   z-index: 2;
-  margin-top: 8vh;
+  margin-top: calc(10vh + 10px);
   margin-left: 80px;
   height: 80vh; /* Set card height explicitly */
   overflow: hidden; /* Clip content within the card */
@@ -76,4 +76,10 @@
   color: #fff;
 }
 
-  
+@media screen and (max-width: 550px) {
+  .mainContainer {
+    margin-left: 0;
+    margin-top: calc(10vh + 90px);
+    width: 100vw;
+  }
+}
