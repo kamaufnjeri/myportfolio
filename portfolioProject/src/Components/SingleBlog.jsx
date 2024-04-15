@@ -56,7 +56,7 @@ const SingleBlog = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('jwtToken');
-      const postedReview = await handlePostRequests(`blogs/addreview/${id}`, review, token);
+      const postedReview = await handlePostRequests(`blogs/addreview/${id}`, review);
       if (postedReview.status === 201) {
         setData(postedReview.data.updatedBlog);
         console.log(postedReview.data.updatedBlog);

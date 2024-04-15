@@ -9,7 +9,7 @@ router.get("/allblogs", getAllBlogs);
 router.delete("/allblogs/:id", verifyJWT, deleteBlog);
 router.put("/allblogs/:id", verifyJWT, updateBlog);
 router.get("/allblogs/:id", getBlog);
-router.post("/addreview/:id", verifyJWT, addReview);
+router.post("/addreview/:id", addReview);
 router.delete("/:blogId/:reviewId", verifyJWT, deleteReview);
 
 module.exports = router;
