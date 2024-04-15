@@ -7,8 +7,8 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import dayjs from 'dayjs';
 
 const MyBlogs = () => {
-    const [data, setData] = useState([]);
-    // useEffect hook to retrieve projects from MongoDB
+  const [data, setData] = useState([]);
+  // useEffect hook to retrieve projects from MongoDB
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,24 +29,24 @@ const MyBlogs = () => {
   return (
     <div className={styles.myprojectsbox}>
       {data && data.map((blog) => (
-        <div className={styles.projectBox}>
-        <div className={styles.cardbox} key={blog._id}>
+        <div className={styles.projectBox} key={blog._id}>
+          <div className={styles.cardbox} key={blog._id}>
             <img src={blog.bannerUrl} alt="blog banner image" className={styles.cardimg} />
             <div className={styles.namecontainer}>
-                <h3>{blog.title}</h3>
-                <Link to={`/blogs/${blog._id}`}><button className={styles.viewbtn}>View Blog</button></Link>
+              <h3>{blog.title}</h3>
+              <Link to={`/blogs/${blog._id}`}><button className={styles.viewbtn}>View Blog</button></Link>
             </div>
-        </div>
-        <div className={styles.projectInfo}>
+          </div>
+          <div className={styles.projectInfo}>
             <h1>{blog.title}</h1>
             <p>Posted on {dayjs(data.createdAt).format('MMMM D, YYYY HH:mm')} . . .</p>
-            <br/>
+            <br />
             <div>
-                <Link to={`/blogs/${blog._id}`} className={styles.btn}>View More <FontAwesomeIcon icon={faArrowRight} /></Link>
+              <Link to={`/blogs/${blog._id}`} className={styles.btn}>View More <FontAwesomeIcon icon={faArrowRight} /></Link>
             </div>
+          </div>
         </div>
-    </div>
-        
+
       ))}
     </div>
   )

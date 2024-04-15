@@ -31,6 +31,7 @@ mongoose
   console.log("Error connecting to db " + err);
 })
 // Allow requests from http://localhost:3000
+console.log(FRONTEND_URL)
 app.use(cors({
   origin: FRONTEND_URL,
   credentials: true,

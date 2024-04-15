@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Define the backend URL using environment variables
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://myportfolio-y9w4.onrender.com';
+const BACKEND_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL || 'https://myportfolio-y9w4.onrender.com';
 
 axios.defaults.withCredentials = true;
 // handling posts requests
@@ -35,7 +35,7 @@ export const handleMultiPartPostRequest = async (url, formData) => {
 // handleget requests
 export const handleGetRequests = async (url) => {
     const urlRequest = `${BACKEND_URL}/${url}`;
-
+    console.log(BACKEND_URL);
     return await axios.get(urlRequest)
     .then(response => response)
     .catch(error => error);

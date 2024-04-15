@@ -1,14 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import dotenv from 'dotenv';
+import dotenvExpand from 'dotenv-expand';
 
-// https://vitejs.dev/config/
+// Load environment variables from .env file
+const env = dotenv.config();
+dotenvExpand.expand(env);
 
 export default defineConfig({
-  define: {
-    'process.env': {}
-  },
-  plugins: [react()],
-  build: {
-    chunkSizeWarningLimit: 1000, // Set the chunk size warning limit to 1000 kB
-  },
-})
+  plugins: [
+    react(),
+  ],
+});
