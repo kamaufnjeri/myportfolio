@@ -37,9 +37,8 @@ const SingleBlog = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const resp = await handleGetRequests("auth/verify");
-
-        if (resp.status === 200) {
+        const token = localStorage.getItem('jwtToken');
+        if (token) {
           setIsLoggedIn(true);
           // Do nothing, the user is authorized
         }
@@ -56,7 +55,8 @@ const SingleBlog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const postedReview = await handlePostRequests(`blogs/addreview/${id}`, review);
+      const token = localStorage.getItem('jwtToken');
+      const postedReview = await handlePostRequests(`blogs/addreview/${id}`, review, token);
       if (postedReview.status === 201) {
         setData(postedReview.data.updatedBlog);
         console.log(postedReview.data.updatedBlog);

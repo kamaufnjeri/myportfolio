@@ -51,9 +51,12 @@ const AddBlog = () => {
         formData.append("image", file);
 
         try {
+          const token = localStorage.getItem('jwtToken');
+
           const resp = await handleMultiPartPostRequest(
             "images/upload",
-            formData
+            formData,
+            token
           );
 
           insertToEditor(resp.imageUrl);
@@ -114,7 +117,9 @@ const AddBlog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent form submission
     setIsLoading(true);
-    const resp = await handlePostRequests("blogs/addblog", data);
+    const token = localStorage.getItem('jwtToken');
+
+    const resp = await handlePostRequests("blogs/addblog", data, token);
     if (resp.status === 200 || resp.status === 500) {
       toast.error(resp.data.message);
     } else if (resp.status === 201) {

@@ -29,9 +29,10 @@ const UpdateTools = () => {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('jwtToken');
 
     // submit data
-    const resp = await handlePutRequests(`projects/alltools/${id}`, data);
+    const resp = await handlePutRequests(`projects/alltools/${id}`, data, token);
 
     console.log(resp)
 

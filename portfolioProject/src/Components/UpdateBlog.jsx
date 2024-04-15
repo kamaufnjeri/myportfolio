@@ -23,12 +23,14 @@ const UpdateBlog = () => {
   const { id } = useParams();
   // Function to insert image into editor
   // Fetch tools
+  const token = localStorage.getItem("jwtToken");
+  console.log('in react comp' + token);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const resp = await handleGetRequests(`blogs/allblogs/${id}`);
         if (resp.status === 200) {
-            console.log(resp.data.blog)
+          console.log(resp.data.blog)
           setData(resp.data.blog);
         } else {
           console.log(resp.data.error);
@@ -41,7 +43,7 @@ const UpdateBlog = () => {
     };
     console.log(data)
     fetchData();
-  }, [id]);
+  }, [setData, id]);
   const insertToEditor = useCallback((url) => {
     if (!editorRef.current) return;
 
@@ -55,7 +57,7 @@ const UpdateBlog = () => {
     }
   }, []);
 
-    // Function to handle image upload
+  // Function to handle image upload
 
   const handleImageUpload = useCallback(async (isBannerImage = false, file = null) => {
 
@@ -74,9 +76,12 @@ const UpdateBlog = () => {
         formData.append("image", file);
 
         try {
+          const token = localStorage.getItem('jwtToken');
+
           const resp = await handleMultiPartPostRequest(
             "images/upload",
-            formData
+            formData,
+            token
           );
 
           insertToEditor(resp.imageUrl);
@@ -85,9 +90,9 @@ const UpdateBlog = () => {
           toast.error("Error uploading image");
         } finally {
           setIsLoading(false); // Set loading state to false after image upload
-         
+
         }
-    };
+      };
     }
   }, [handleMultiPartPostRequest, data]);
 
@@ -99,10 +104,10 @@ const UpdateBlog = () => {
         [{ header: [1, 2, 3, 4, 5, 6, false] }],
         ["bold", "italic", "underline", "strike"],
         [{ color: [] }, { background: [] }],
-        [{ script:  "sub" }, { script:  "super" }],
+        [{ script: "sub" }, { script: "super" }],
         ["blockquote", "code-block"],
-        [{ list:  "ordered" }, { list:  "bullet" }],
-        [{ indent:  "-1" }, { indent:  "+1" }, { align: [] }],
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ indent: "-1" }, { indent: "+1" }, { align: [] }],
         ["link", "image"],
         ["clean"],
       ],
@@ -112,14 +117,16 @@ const UpdateBlog = () => {
         },
       },
     },
-    
+
   }), []);
-  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent form submission
     setIsLoading(true);
-    const resp = await handlePutRequests(`blogs/allblogs/${id}`, data);
+    const token = localStorage.getItem('jwtToken');
+
+    const resp = await handlePutRequests(`blogs/allblogs/${id}`, data, token);
     if (resp.status === 404 || resp.status === 500) {
       toast.error(resp.data.message);
     } else if (resp.status === 200) {
@@ -147,18 +154,18 @@ const UpdateBlog = () => {
             id="title"
             required
             value={data.title}
-            onChange={(e) => setData({...data, title: e.target.value})} />
+            onChange={(e) => setData({ ...data, title: e.target.value })} />
         </div>
         <div className={styles.texteditor}>
           {showQuill &&
             <MemoizedReactQuill
-            ref={editorRef}
-            className={styles.editor}
-            style={{ height: "30vh", marginBottom: "20px" }}
-            modules={modules}
-            value={data.content}
-            onChange={(value) => setData({...data, content: value})}
-            placeholder="Start writing blog..."
+              ref={editorRef}
+              className={styles.editor}
+              style={{ height: "30vh", marginBottom: "20px" }}
+              modules={modules}
+              value={data.content}
+              onChange={(value) => setData({ ...data, content: value })}
+              placeholder="Start writing blog..."
             />}
         </div>
         <div className={styles.inputbox}>

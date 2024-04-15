@@ -10,27 +10,18 @@ const AdminBlogsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const resp = await handleGetRequests("auth/verify");
-
-        if (resp.status === 200) {
-          // Do nothing, the user is authorized
-        } else if (resp.status === 404) {
-          navigate("/adminlogin");
-        } else {
-          throw new Error("Unexpected response");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        toast.error("Error fetching data! Please login");
-        navigate("/adminlogin");
+    try {
+      const token = localStorage.getItem('jwtToken');
+      if (!token) {
+        throw new Error('No token Found')
       }
+    } catch (error) {
+      toast.error("Error fetching data! Please login");
+      // Handle errors here, like displaying an error message or redirecting to home
+      navigate("/adminlogin");
     }
-
-    fetchData();
-  }, [navigate]); // Added navigate as a dependency to useEffect
-
+  }, []);
+  
   return (
     <div className={styles.dashboard}>
       <SiderBar />

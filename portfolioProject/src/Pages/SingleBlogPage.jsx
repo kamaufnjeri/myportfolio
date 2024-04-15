@@ -2,8 +2,8 @@ import React from 'react'
 import SingleBlog from '../Components/SingleBlog';
 
 const SingleBlogPage = () => {
-    // styles variables
- const mainContentStyle = {
+  // styles variables
+  const mainContentStyle = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -16,11 +16,11 @@ const SingleBlogPage = () => {
     textAlign: "justify",
   }
 
- return (
-   <div style={mainContentStyle}>
-     <SingleBlog />
-   </div>
- );
+  return (
+    <div style={mainContentStyle}>
+      <SingleBlog />
+    </div>
+  );
 }
 
 export default SingleBlogPage

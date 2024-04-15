@@ -76,7 +76,9 @@ const UpdateProject = () => {
     e.preventDefault(); // Prevent form submission
 
     try {
-      const resp = await handlePutRequests(`projects/allprojects/${id}`, data);
+      const token = localStorage.getItem('jwtToken');
+
+      const resp = await handlePutRequests(`projects/allprojects/${id}`, data, token);
 
       if (resp.status == 404 || resp.status == 500) {
         toast.error(resp.data.message);
@@ -153,12 +155,13 @@ const UpdateProject = () => {
           />
         </div>
         <div className={styles.inputbox}> {/* Apply inputbox class */}
-          <label htmlFor="videoUrl">Project Video Code</label>
+          <label htmlFor="videoUrl">Project Video Code <span>*</span></label>
           <textarea
             id="videoUrl"
             placeholder="Video Code"
             rows={6}
             value={data.videoUrl}
+            required
             onChange={(e) => {
               setData({ ...data, videoUrl: e.target.value})
             }}

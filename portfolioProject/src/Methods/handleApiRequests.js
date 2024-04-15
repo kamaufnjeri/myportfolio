@@ -1,60 +1,82 @@
 import axios from "axios";
 
 // Define the backend URL using environment variables
-const BACKEND_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL || 'https://myportfolio-y9w4.onrender.com';
+const BACKEND_URL =
+  import.meta.env.VITE_REACT_APP_BACKEND_URL ||
+  "https://myportfolio-y9w4.onrender.com";
 
-axios.defaults.withCredentials = true;
-// handling posts requests
-export const handlePostRequests = async (url, data) => {
-  const urlRequest = `${BACKEND_URL}/${url}`;
-
-  return await axios.post(urlRequest, data)
-    .then(response => {
-        return response;
-    })
-    .catch(error => {
-        return error;
-    });
+// Optional default headers (including Authorization with JWT token if available)
+axios.defaults.headers.common = {
+  Authorization: localStorage.getItem("jwtToken") ? `Bearer ${localStorage.getItem("jwtToken")}` : "",
 };
 
-export const handleMultiPartPostRequest = async (url, formData) => {
-    const urlRequest = `${BACKEND_URL}/${url}`;
+// handling posts requests
+export const handlePostRequests = async (url, data, token = null) => {
+  const urlRequest = `${BACKEND_URL}/${url}`;
 
-    try {
-      const response = await axios.post(urlRequest, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      return response.data; // Return response data if successful
-    } catch (error) {
-      throw error; // Throw error if request fails
-    }
-  };
+  const headers = token
+    ? { ...axios.defaults.headers.common, Authorization: `Bearer ${token}` }
+    : axios.defaults.headers.common;
+
+  return await axios
+    .post(urlRequest, data, { headers })
+    .then((response) => response)
+    .catch((error) => error);
+};
+
+export const handleMultiPartPostRequest = async (url, formData, token = null) => {
+  const urlRequest = `${BACKEND_URL}/${url}`;
+
+  const headers = token
+    ? { ...axios.defaults.headers.common, Authorization: `Bearer ${token}` }
+    : axios.defaults.headers.common;
+
+  try {
+    const response = await axios.post(urlRequest, formData, { headers });
+    return response.data; // Return response data if successful
+  } catch (error) {
+    throw error; // Throw error if request fails
+  }
+};
 
 // handleget requests
-export const handleGetRequests = async (url) => {
-    const urlRequest = `${BACKEND_URL}/${url}`;
-    console.log(BACKEND_URL);
-    return await axios.get(urlRequest)
-    .then(response => response)
-    .catch(error => error);
-}
+export const handleGetRequests = async (url, token = null) => {
+  const urlRequest = `${BACKEND_URL}/${url}`;
+
+  const headers = token
+    ? { ...axios.defaults.headers.common, Authorization: `Bearer ${token}` }
+    : axios.defaults.headers.common;
+
+  return await axios
+    .get(urlRequest, { headers })
+    .then((response) => response)
+    .catch((error) => error);
+};
 
 // deleting items
-export const handleDeleteRequests = async (url) => {
-    const urlRequest = `${BACKEND_URL}/${url}`;
+export const handleDeleteRequests = async (url, token = null) => {
+  const urlRequest = `${BACKEND_URL}/${url}`;
 
-    return await axios.delete(urlRequest)
-    .then(response => response)
-    .catch(error => error);
-}
+  const headers = token
+    ? { ...axios.defaults.headers.common, Authorization: `Bearer ${token}` }
+    : axios.defaults.headers.common;
+
+  return await axios
+    .delete(urlRequest, { headers })
+    .then((response) => response)
+    .catch((error) => error);
+};
 
 // updating data
-export const handlePutRequests = async (url, data) => {
-    const urlRequest = `${BACKEND_URL}/${url}`;
+export const handlePutRequests = async (url, data, token = null) => {
+  const urlRequest = `${BACKEND_URL}/${url}`;
 
-    return await axios.put(urlRequest, data)
-    .then(response => response)
-    .catch(error => error);
-}
+  const headers = token
+    ? { ...axios.defaults.headers.common, Authorization: `Bearer ${token}` }
+    : axios.defaults.headers.common;
+
+  return await axios
+    .put(urlRequest, data, { headers })
+    .then((response) => response)
+    .catch((error) => error);
+};

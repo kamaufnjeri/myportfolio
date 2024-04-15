@@ -30,7 +30,7 @@ const AdminProjects = () => {
         }
     }
      fetchData();
-  }, [projects])
+  }, [setProjects, projects])
 
   // deleting project
   const handleDelete = async (id) => {

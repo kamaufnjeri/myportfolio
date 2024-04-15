@@ -19,13 +19,11 @@ const SiderBar = () => {
   const navigate = useNavigate();
   const logout = async () => {
     const resp = await handleGetRequests("logout");
-    if (resp.status === 200) {
-      // successful in fetching logout url
-      toast.success(resp.data.message);
+    localStorage.removeItem('jwtToken');
+
+    if (!localStorage.getItem('jwtToken')) {
+      toast.success('Logout successful');
       navigate("/");
-    } else if (resp.status === 500) {
-      // error
-      toast.error(resp.data.message);
     } else {
       toast.error("Could not logout. Try again");
     }
@@ -45,9 +43,9 @@ const SiderBar = () => {
         <span>Add project</span>
       </div>
       <div className={styles.icondetail}>
-      <Link to="/admindashboard/tools">
-      <ToolsIcon />
-      </Link>
+        <Link to="/admindashboard/tools">
+          <ToolsIcon />
+        </Link>
         <span>Tools</span>
       </div>
       <div className={styles.icondetail}>

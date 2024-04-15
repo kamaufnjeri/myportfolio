@@ -14,7 +14,9 @@ const AddTools = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const resp = await handlePostRequests("projects/addtool", data);
+      const token = localStorage.getItem('jwtToken');
+
+      const resp = await handlePostRequests("projects/addtool", data, token);
     //handle post errors
       if (resp.status === 200 || resp.status === 404 || resp.status === 500) {
         toast.error(resp.data.message);

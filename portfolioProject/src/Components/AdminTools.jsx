@@ -20,7 +20,7 @@ const AdminTools = () => {
         }
     }
      fetchData();
-  }, [tools])
+  }, [setTools, tools])
 
   return (
     <div className={styles.maincontent}>

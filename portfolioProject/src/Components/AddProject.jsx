@@ -38,7 +38,9 @@ const AddProject = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent form submission
     setIsLoading(true);
-    const resp = await handlePostRequests("projects/addproject", data);
+    const token = localStorage.getItem('jwtToken');
+
+    const resp = await handlePostRequests("projects/addproject", data, token);
     if (resp.status === 200 || resp.status === 500) {
       toast.error(resp.data.message);
     } else if (resp.status === 201) {
@@ -118,12 +120,13 @@ const AddProject = () => {
           />
         </div>
         <div className={styles.inputbox}> {/* Apply inputbox class */}
-          <label htmlFor="videoUrl">Project Video Code</label>
+          <label htmlFor="videoUrl">Project Video Code <span>*</span></label>
           <textarea
             id="videoUrl"
             placeholder="Video Code"
             rows={6}
             value={data.videoUrl}
+            required
             onChange={(e) => {
               setData({ ...data, videoUrl: e.target.value})
             }}

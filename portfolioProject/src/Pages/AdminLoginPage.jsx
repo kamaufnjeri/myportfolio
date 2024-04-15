@@ -33,10 +33,16 @@ export default function AdminLoginPage() {
 
       // check it has the response data
       if (response.status === 201) {
-        toast.success(
-          `${response.data.message}: Hi ${response.data.user.email}!`
-        );
-        navigate("/admindashboard");
+        if (response.data.token) {
+          const token = response.data.token;
+          localStorage.setItem('jwtToken', token);
+          toast.success(
+            `${response.data.message}: Hi ${response.data.user.email}!`
+          );
+          navigate("/admindashboard");
+        }
+
+
       } else {
         toast.error(
           `${response.data.message}: ${response.data.error}`,
