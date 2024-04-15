@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Define the backend URL using environment variables
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://myportfolio-y9w4.onrender.com';
 
 axios.defaults.withCredentials = true;
 // handling posts requests
