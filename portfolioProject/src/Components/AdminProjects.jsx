@@ -34,7 +34,9 @@ const AdminProjects = () => {
 
   // deleting project
   const handleDelete = async (id) => {
-    const resp = await handleDeleteRequests(`projects/allprojects/${id}`);
+    const token = localStorage.getItem('jwtToken');
+
+    const resp = await handleDeleteRequests(`projects/allprojects/${id}`, token);
 
     if (resp.status === 404 || resp.status === 500) {
       toast.error(resp.data.message);
@@ -66,6 +68,7 @@ const AdminProjects = () => {
             {/* Displaying project details */}
             <DeleteConfirmationModal
                 isOpen={showModal}
+                
                 onDelete={(e) => handleDelete(project._id)}
                 id={project._id}
                 onCancel={handleCancel}

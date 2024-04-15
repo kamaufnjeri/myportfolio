@@ -34,7 +34,9 @@ const AdminBlogs = () => {
   
     // deleting project
     const handleDelete = async (id) => {
-      const resp = await handleDeleteRequests(`blogs/allblogs/${id}`);
+      const token = localStorage.getItem('jwtToken');
+
+      const resp = await handleDeleteRequests(`blogs/allblogs/${id}`, token);
   
       if (resp.status === 404 || resp.status === 500) {
         toast.error(resp.data.message);

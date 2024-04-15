@@ -83,7 +83,9 @@ const SingleBlog = () => {
 
   // deleting reviews
   const handleReviewDelete = async (blogId) => {
-    const resp = await handleDeleteRequests(`blogs/${id}/${blogId}`);
+    const token = localStorage.getItem('jwtToken');
+
+    const resp = await handleDeleteRequests(`blogs/${id}/${blogId}`, token);
 
     if (resp.status === 404 || resp.status === 500) {
       toast.error(resp.data.message);
