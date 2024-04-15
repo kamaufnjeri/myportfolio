@@ -87,4 +87,4 @@ Contributions are welcome! Please open an issue or submit a pull request to sugg
 
 ## License
 
-This project is licensed under the BTS License.
+This project is licensed under the [BSD 2-Clause License](LICENSE).
