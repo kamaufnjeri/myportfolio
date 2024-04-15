@@ -59,7 +59,7 @@ module.exports.login = async (req, res) => {
     const token = createjwt(user);
 
     // Set JWT token as a cookie
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000, sameSite: 'None', secure: true });
+    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000, sameSite: 'Strict', secure: true });
 
     // Respond with success message
     res.status(201).json({ message: "Login successful", user: user });
@@ -76,6 +76,7 @@ module.exports.logout = async (req, res) => {
     // clear the cookie
     try {
         res.clearCookie('jwt', { path: '/'});
+        
         res.status(200).json({message: "Logout successful"})
     } catch (error) {
         res.status(500).json({message: "Failed to logout"});

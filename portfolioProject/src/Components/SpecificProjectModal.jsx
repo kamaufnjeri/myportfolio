@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from "./SpecificProjectModal.module.css";
 import { handleGetRequests } from '../Methods/handleApiRequests';
-import { Link } from 'react-router-dom';
 
 const SpecificProjectModal = ({ project, isOpen, onClose }) => {
   const modalRef = useRef(null);

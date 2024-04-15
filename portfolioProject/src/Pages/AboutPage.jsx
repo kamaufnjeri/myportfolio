@@ -45,16 +45,16 @@ const AboutPage = () => {
             <div className={styles.skills}>
               <h1>My Skills</h1>
               <div className={styles.myLists}>
-                {mySkills && mySkills.map(skill => (
-                  <span>{skill}</span>
+                {mySkills && mySkills.map((skill, index) => (
+                  <span key={index}>{skill}</span>
                 ))}
               </div>
             </div>
             <div className={styles.hobbies}>
               <h1>My hobbies</h1>
               <div className={styles.myLists}>
-                {myHobbies && myHobbies.map(hobby => (
-                  <span>{hobby}</span>
+                {myHobbies && myHobbies.map((hobby, index) => (
+                  <span key={index}>{hobby}</span>
                 ))}
               </div>
             </div>

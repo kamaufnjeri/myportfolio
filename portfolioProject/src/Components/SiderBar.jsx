@@ -10,7 +10,7 @@ import {
   SignOutButton,
   ToolsIcon,
 } from "./Icons";
-import { handleGetRequests } from "../Methods/handleApiRequests";
+import { handleGetRequests, handlePostRequests } from "../Methods/handleApiRequests";
 import { toast } from "react-toastify";
 
 //component for sidebar

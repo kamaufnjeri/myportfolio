@@ -1,10 +1,12 @@
 import axios from "axios";
 
+// Define the backend URL using environment variables
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000';
 
 axios.defaults.withCredentials = true;
 // handling posts requests
 export const handlePostRequests = async (url, data) => {
-  const urlRequest = `https://myportfolio-y9w4.onrender.com/${url}`;
+  const urlRequest = `${BACKEND_URL}/${url}`;
 
   return await axios.post(urlRequest, data)
     .then(response => {
@@ -16,7 +18,7 @@ export const handlePostRequests = async (url, data) => {
 };
 
 export const handleMultiPartPostRequest = async (url, formData) => {
-    const urlRequest = `https://myportfolio-y9w4.onrender.com/${url}`;
+    const urlRequest = `${BACKEND_URL}/${url}`;
 
     try {
       const response = await axios.post(urlRequest, formData, {
@@ -32,7 +34,7 @@ export const handleMultiPartPostRequest = async (url, formData) => {
 
 // handleget requests
 export const handleGetRequests = async (url) => {
-    const urlRequest = `https://myportfolio-y9w4.onrender.com/${url}`;
+    const urlRequest = `${BACKEND_URL}/${url}`;
 
     return await axios.get(urlRequest)
     .then(response => response)
@@ -41,7 +43,7 @@ export const handleGetRequests = async (url) => {
 
 // deleting items
 export const handleDeleteRequests = async (url) => {
-    const urlRequest = `https://myportfolio-y9w4.onrender.com/${url}`;
+    const urlRequest = `${BACKEND_URL}/${url}`;
 
     return await axios.delete(urlRequest)
     .then(response => response)
@@ -50,7 +52,7 @@ export const handleDeleteRequests = async (url) => {
 
 // updating data
 export const handlePutRequests = async (url, data) => {
-    const urlRequest = `https://myportfolio-y9w4.onrender.com/${url}`;
+    const urlRequest = `${BACKEND_URL}/${url}`;
 
     return await axios.put(urlRequest, data)
     .then(response => response)

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from "./MyProjectsList.module.css";
 import SpecificProjectModal from './SpecificProjectModal';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 
 const SingleProjectCard = ({ project }) => {
     // State to manage the modal open/close state

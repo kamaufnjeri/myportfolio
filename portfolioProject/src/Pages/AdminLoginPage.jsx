@@ -39,11 +39,12 @@ export default function AdminLoginPage() {
         navigate("/admindashboard");
       } else {
         toast.error(
-          `${response.response.data.message}: ${response.response.data.error}`,
+          `${response.data.message}: ${response.data.error}`,
           {}
         );
       }
     } catch (error) {
+      console.log(error);
       toast.error("Failed to login! Try Again");
     }
     setData({ email: "", password: "" });

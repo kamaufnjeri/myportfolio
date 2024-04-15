@@ -18,6 +18,7 @@ const AdminProjectsPage = () => {
         if (resp.status === 200) {
           // Do nothing, the user is authorized
         } else if (resp.status === 404) {
+          
           navigate("/adminlogin");
         } else {
           throw new Error("Unexpected response");

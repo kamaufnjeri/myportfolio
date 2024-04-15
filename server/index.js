@@ -15,6 +15,8 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 3000;
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+console.log(FRONTEND_URL)
 const MONGODB_URL = process.env.MONGODB_URL;
 // connect to database
 console.log(MONGODB_URL);
@@ -30,9 +32,10 @@ mongoose
 })
 // Allow requests from http://localhost:3000
 app.use(cors({
-  origin: 'https://kamaufnjeri.onrender.com',
+  origin: FRONTEND_URL,
   credentials: true,
 }));
+
 
 //allow json, cookie parser
 app.use(express.json());
