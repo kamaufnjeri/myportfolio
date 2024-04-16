@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import FindMe from "../Components/FindMe";
+import { handleGetRequests } from "../Methods/handleApiRequests";
 
 const HomePage = () => {
   // Index of role to display and write word
@@ -24,14 +25,15 @@ const HomePage = () => {
         const resp = await handleGetRequests("projects/allprojects");
         if (resp.status === 200) {
           setData(resp.data.projects);
+          console.log(resp.data.projects);
         } else if (resp.status === 404 || resp.status === 500) {
           console.log(resp.data.message);
+
         }
       } catch (error) {
         console.log(error);
       }
     };
-
     fetchData();
   }, []); // Empty dependency array to ensure useEffect runs only once
 

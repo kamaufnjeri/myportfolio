@@ -30,7 +30,7 @@ mongoose
 .catch((err) => {
   console.log("Error connecting to db " + err);
 })
-// Allow requests from http://localhost:3000
+// Allow requests from fronten
 console.log(FRONTEND_URL)
 app.use(cors({
   origin: FRONTEND_URL,

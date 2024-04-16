@@ -24,8 +24,8 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
-  margin-top: calc(10vh + 10px);
-  height: calc(90vh - 8vh); /* Maintain main container height */
+  margin-top: 90px;
+  height: 80vh; /* Maintain main container height */
   text-align: left;
 }
 
@@ -139,11 +139,11 @@ p {
 }
 
 @media screen and (max-width: 550px) {
-  .mainContainer {
-    margin-top: calc(10vh + 90px);
-  }
+
   .aboutme {
     width: 100vw;
+    margin-top: 60px;
+    height: calc(80vh - 30px);
   }
   h1 {
     font-size: 30px;

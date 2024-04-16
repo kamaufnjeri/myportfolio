@@ -141,12 +141,13 @@
 
 @media screen and (max-width: 550px) {
   .mainContainer {
-    margin-top: calc(10vh + 90px);
+    margin-top: 150px;
+    height: calc(80vh - 40px);
     margin-left: 0;
     width: 100vw;
   }
- 
 }
+
 @media screen and (max-width: 300px) {
   .formBox input,
   .formBox textarea,

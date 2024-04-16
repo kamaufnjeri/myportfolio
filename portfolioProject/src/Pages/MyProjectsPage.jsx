@@ -12,29 +12,37 @@ const MyProjectsPage = () => {
   // Using state for getting projects
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [retries, setRetries] = useState(0);
+  const [error, setError] = useState(null);
+  const maxRetries = 5;
 
   // useEffect hook to retrieve projects from MongoDB
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const resp = await handleGetRequests("projects/allprojects");
-        if (resp.status === 200) {
-          setData(resp.data.projects);
-          setIsLoading(false);
-        } else if (resp.status === 404 || resp.status === 500) {
-          console.log(resp.data.message);
-          setIsLoading(false);
-        }
-      } catch (error) {
-        console.log(error);
+  const fetchData = async () => {
+    try {
+      const resp = await handleGetRequests("projects/allprojects");
+      if (resp.status === 200) {
+        setData(resp.data.projects);
+        setIsLoading(false);
+        setRetries(0); // Reset retries on successful fetch
+      } else if (resp.status === 404 || resp.status === 500) {
+        throw new Error(resp.data.message);
       }
-      
-    };
-
-    fetchData();
+    } catch (error) {
+      console.log(error);
+      setError(error.message || error.toString());
+      setIsLoading(false)
+      setRetries(prevRetries => Math.min(prevRetries + 1, maxRetries));
+    }
+    
+  };
+  useEffect(() => {
+    setIsLoading(true);
+    const pollingInterval = 10000; // Initial polling interval (10 seconds)
+    const intervalId = setInterval(fetchData, retries > 0 ? pollingInterval * Math.pow(2, retries) : pollingInterval);
+    // Cleanup function to clear the interval on component unmount
+    return () => clearInterval(intervalId);
   }, []); // Empty dependency array to ensure useEffect runs only once
-
+  
   return (
     <div className={styles.background}>
       {isLoading && <Loading/>}
@@ -52,6 +60,7 @@ const MyProjectsPage = () => {
           <div>
             <Link to='/contact'><span className={styles.btn}>Contact <FontAwesomeIcon icon={faArrowRight} /></span></Link>
           </div>
+          {error && <p>{error}</p>}
         </div>
 
       </div>
