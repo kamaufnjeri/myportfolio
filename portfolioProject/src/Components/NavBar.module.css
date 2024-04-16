@@ -108,6 +108,11 @@ a.navlink {
     }
     
 }
+@media screen and (max-width: 550px) {
+    .navbar {
+        top: 80px;
+    }
+}
 @media screen and (max-width: 500px) {
     .myname {
         font-size: 30px;

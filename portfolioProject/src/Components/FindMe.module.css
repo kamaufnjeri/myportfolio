@@ -53,13 +53,14 @@ a img {
 
 @media screen and (max-width: 550px) {
     .findMe {
-        top: 10vh;
+        top: 0;
         left: 0;
-        width: 280px;
+        width: 100vw;
         height: 80px;
+        background-color: #f9a825;
     }
     .findMe .icons {
         flex-direction: row;
-        
+        justify-content: space-between;
     }
 }

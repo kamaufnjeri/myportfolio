@@ -14,6 +14,27 @@ const HomePage = () => {
   // Track the direction of the animation (1 for writing, -1 for erasing)
   const [animationDirection, setAnimationDirection] = useState(1);
 
+  // Using state for getting projects
+  const [data, setData] = useState([]);
+
+  // useEffect hook to retrieve projects from MongoDB
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const resp = await handleGetRequests("projects/allprojects");
+        if (resp.status === 200) {
+          setData(resp.data.projects);
+        } else if (resp.status === 404 || resp.status === 500) {
+          console.log(resp.data.message);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array to ensure useEffect runs only once
+
   // Array showing my roles
   const roles = [
     "A Software Developer.",

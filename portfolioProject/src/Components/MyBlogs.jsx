@@ -5,29 +5,38 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import dayjs from 'dayjs';
+import Loading from './Loading';
 
 const MyBlogs = () => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   // useEffect hook to retrieve projects from MongoDB
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const resp = await handleGetRequests("blogs/allblogs");
         if (resp.status === 200) {
           setData(resp.data.blogs);
+          setIsLoading(false);
         } else if (resp.status === 404 || resp.status === 500) {
           console.log(resp.data.message);
+          setIsLoading(false);
         }
       } catch (error) {
         console.log(error);
+        setIsLoading(false);
       }
     };
 
     fetchData();
+    
   }, []); // Empty dependency array to ensure useEffect runs only once
 
   return (
     <div className={styles.myprojectsbox}>
+      {isLoading && <Loading/>}
       {data && data.map((blog) => (
         <div className={styles.projectBox} key={blog._id}>
           <div className={styles.cardbox} key={blog._id}>

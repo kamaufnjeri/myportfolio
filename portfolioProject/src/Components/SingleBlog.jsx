@@ -4,6 +4,8 @@ import { handleDeleteRequests, handleGetRequests, handlePostRequests } from '../
 import styles from './SingleBlog.module.css';
 import  dayjs from 'dayjs';
 import { toast } from 'react-toastify';
+import Loading from './Loading';
+import FindMe from './FindMe';
 
 const SingleBlog = () => {
 // Using state for getting blog
@@ -14,20 +16,25 @@ const SingleBlog = () => {
  })
  const [show, setShow] = useState(false);
  const [isLoggedIn, setIsLoggedIn] = useState(false);
+ const [isLoading, setIsLoading] = useState(false);
 
  const { id } = useParams();
  
  useEffect(() => {
   const fetchData = async () => {
     try {
+      setIsLoading(true);
       const resp = await handleGetRequests(`blogs/allblogs/${id}`);
       if (resp.status === 200) {
         setData(resp.data.blog);
+        setIsLoading(false);
       } else if (resp.status === 404 || resp.status === 500) {
         console.log(resp.data.message);
+        setIsLoading(false);
       }
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
@@ -100,6 +107,8 @@ const SingleBlog = () => {
 
   return (
     <div className={styles.blogArea}>
+      {isLoading && <Loading/>}
+      <FindMe/>
       <div className={styles.blog}>
         <div className={styles.blogHeader}>
           <h3>Blog Title: {data.title}</h3>

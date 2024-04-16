@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MyProjectsList from '../Components/MyProjectsList';
+import Loading from '../Components/Loading';
 import styles from './MyProjectsPage.module.css'
 import { handleGetRequests } from '../Methods/handleApiRequests';
 import FindMe from '../Components/FindMe';
@@ -10,20 +11,25 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 const MyProjectsPage = () => {
   // Using state for getting projects
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // useEffect hook to retrieve projects from MongoDB
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const resp = await handleGetRequests("projects/allprojects");
         if (resp.status === 200) {
           setData(resp.data.projects);
+          setIsLoading(false);
         } else if (resp.status === 404 || resp.status === 500) {
           console.log(resp.data.message);
+          setIsLoading(false);
         }
       } catch (error) {
         console.log(error);
       }
+      
     };
 
     fetchData();
@@ -31,6 +37,7 @@ const MyProjectsPage = () => {
 
   return (
     <div className={styles.background}>
+      {isLoading && <Loading/>}
       <div className={styles.mainContainer}>
         <FindMe />
         <div className={styles.myprojects}>

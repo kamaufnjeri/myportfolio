@@ -1,0 +1,21 @@
+.mainContentStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(90vw - 90px);
+    flex-direction: column;
+    border: 2px solid #ccc;
+    margin: calc(10vh + 10px) 20px 20px 90px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: justify;
+  }
+
+@media screen and (max-width: 550px) {
+    .mainContentStyle {
+        margin-top: calc(10vh + 90px);
+        margin-left: 0;
+        width: 90vw;
+    }
+    
+}
