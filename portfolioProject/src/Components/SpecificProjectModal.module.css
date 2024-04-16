@@ -54,7 +54,7 @@
   justify-content: space-between;
   padding: 10px;
   position: fixed;
-  z-index: 5;
+  z-index: 15;
 }
 .header h2 {
   font-size: 25px;
@@ -202,7 +202,11 @@ a.link:hover {
     height: auto;
   }
 }
-
+@media screen and (max-width: 550px) {
+  .projectcontent {
+    top: calc(10vh + 10vh);
+  }
+}
 @media screen and (max-width: 500px) {
   iframe {
     width: 200px;
