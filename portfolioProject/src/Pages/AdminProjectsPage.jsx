@@ -4,7 +4,7 @@ import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
 import { useNavigate } from "react-router-dom";
 import AdminProjects from "../Components/AdminProjects";
-import { handleGetRequests } from "../Methods/handleApiRequests";
+import FindMe from "../Components/FindMe";
 // Import handleGetRequests from your API file
 
 const AdminProjectsPage = () => {
@@ -25,6 +25,9 @@ const AdminProjectsPage = () => {
 
   return (
     <div className={styles.dashboard}>
+      <div className={styles.contactMe}>
+        <FindMe />
+      </div>
       <SiderBar />
       <AdminProjects />
     </div>

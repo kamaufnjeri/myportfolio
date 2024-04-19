@@ -4,6 +4,7 @@ import Button from "../Components/Button";
 import { handlePostRequests } from "../Methods/handleApiRequests";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import FindMe from "../Components/FindMe";
 
 // admin login page components
 export default function AdminLoginPage() {
@@ -58,6 +59,7 @@ export default function AdminLoginPage() {
 
   return (
     <div className={styles.main}>
+      <FindMe/>
       <h2>Admin Login</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className={styles.inputbox}>

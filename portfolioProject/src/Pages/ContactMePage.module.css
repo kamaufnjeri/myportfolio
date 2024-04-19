@@ -147,7 +147,27 @@
     width: 100vw;
   }
 }
+@media screen and (max-height: 650px) {
+  .mainContainer {
+    height: 400px;
+  }
+}
+@media screen and (max-height: 500px) {
+  .mainContainer {
+    height: 300px;
+  }
+}
+@media screen and (max-height: 410px) {
+  .mainContainer {
+    height: 200px;
+  }
+}
 
+@media screen and (max-height: 350px) {
+  .mainContainer {
+    height: 150px;
+  }
+}
 @media screen and (max-width: 300px) {
   .formBox input,
   .formBox textarea,

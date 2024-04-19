@@ -28,6 +28,7 @@
     align-items: center;
     justify-content: space-between;
     width: calc(90vw - 80px);
+    height: 400px;
     color: #fff;
     margin-left: 80px;
     border-radius: 5px;
@@ -90,3 +91,18 @@ a {
         width: 100vw;
     }
 }
+@media screen and (max-height: 600px) {
+    .aboutinfo {
+        overflow-y: auto;
+        height: 300px;
+    }
+}
+@media screen and (max-height: 480px) {
+    .aboutinfo {
+        margin-top: 90px;
+        height: 200px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
+

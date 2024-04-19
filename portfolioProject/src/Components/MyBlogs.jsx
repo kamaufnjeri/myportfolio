@@ -36,7 +36,7 @@ const MyBlogs = () => {
   };
   useEffect(() => {
     setIsLoading(true);
-    const pollingInterval = 10000; // Initial polling interval (10 seconds)
+    const pollingInterval = 1000; // Initial polling interval (10 seconds)
     const intervalId = setInterval(fetchData, retries > 0 ? pollingInterval * Math.pow(2, retries) : pollingInterval);
     // Cleanup function to clear the interval on component unmount
     return () => clearInterval(intervalId);
@@ -64,6 +64,7 @@ const MyBlogs = () => {
         </div>
 
       ))}
+      {error && <p>{error}</p>}
     </div>
   )
 }

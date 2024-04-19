@@ -84,3 +84,25 @@
     width: 100vw;
   }
 }
+
+@media screen and (max-height: 650px) {
+  .mainContainer {
+    height: 400px;
+  }
+}
+@media screen and (max-height: 500px) {
+  .mainContainer, .aboutme {
+    height: 300px;
+  }
+}
+@media screen and (max-height: 410px) {
+  .mainContainer, .aboutme {
+    height: 200px;
+  }
+}
+
+@media screen and (max-height: 350px) {
+  .mainContainer, .aboutme {
+    height: 150px;
+  }
+}

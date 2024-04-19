@@ -33,6 +33,7 @@
     list-style: none;
     position: relative;
 }
+
 .links .navItem::after {
     content: "";
     position: absolute;
@@ -60,8 +61,18 @@ a.navlink {
     display: none;
     font-weight: 600;
 }
-
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 950px) {
+    .myname {
+        font-size: 30px;
+    }  
+    .links {
+        gap: 15px;
+    } 
+    a.navlink {
+        font-size: 20px;
+    } 
+}
+@media screen and (max-width: 750px) {
     .visible {
         transform: scale(1);
         transition: transform 0.3s ease-out; /* Smooth transition */
@@ -93,6 +104,7 @@ a.navlink {
         padding: 10px 20px 20px 20px;
         position: absolute;
         top: 80px;
+        height: 260px;
         border-radius: 3px;
         z-index: 3;
         background: #6a0dad;
@@ -109,10 +121,20 @@ a.navlink {
     }
     
 }
+@media screen and (max-height: 370px) and (max-width: 750px) {
+    .links {
+        overflow-y: auto;
+        height: 150px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
+
 @media screen and (max-width: 550px) {
     .navbar {
         top: 80px;
     }
+    
 }
 @media screen and (max-width: 500px) {
     .myname {

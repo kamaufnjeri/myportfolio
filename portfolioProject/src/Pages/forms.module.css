@@ -79,6 +79,13 @@ h2 {
     z-index:5;
     opacity: 1;
 }
+
+@media screen and (max-width: 550px) {
+    .main {
+        margin-top: 90px;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .inputbox input {
         width: 250px;

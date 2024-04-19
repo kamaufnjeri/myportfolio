@@ -4,5 +4,16 @@
     align-items: flex-start;
     justify-content: center;
     max-width: 97vw;
-    margin-top: 13vh;
+    margin-top: 90px;
+}
+.contactMe {
+    visibility: hidden;
+}
+@media screen and (max-width: 550px) {
+    .dashboard {
+        margin-top: 180px;
+    }
+    .contactMe {
+        visibility: visible;
+    }
 }

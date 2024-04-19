@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
 import AddTools from "../Components/AddTools";
+import FindMe from "../Components/FindMe";
 
 export default function AdminAddToolPage() {
   const navigate = useNavigate();
@@ -25,6 +26,9 @@ export default function AdminAddToolPage() {
   return (
     <div>
       <div className={styles.dashboard}>
+      <div className={styles.contactMe}>
+          <FindMe/>
+        </div>
         <SiderBar />
         <AddTools />
       </div>

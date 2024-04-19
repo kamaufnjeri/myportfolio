@@ -5,11 +5,12 @@ import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
 import UpdateProject from "../Components/UpdateProject";
+import FindMe from "../Components/FindMe";
 
 export default function AdminUpdateProjectPage() {
   const navigate = useNavigate();
   // make this route protected using useEffect
-  
+
   useEffect(() => {
     try {
       const token = localStorage.getItem('jwtToken');
@@ -27,6 +28,9 @@ export default function AdminUpdateProjectPage() {
   return (
     <div>
       <div className={styles.dashboard}>
+        <div className={styles.contactMe}>
+          <FindMe />
+        </div>
         <SiderBar />
         <UpdateProject />
       </div>

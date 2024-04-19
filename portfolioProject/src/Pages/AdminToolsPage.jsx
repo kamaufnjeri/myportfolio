@@ -3,8 +3,8 @@ import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
 import { useNavigate } from "react-router-dom";
-import { handleGetRequests } from "../Methods/handleApiRequests";
 import AdminTools from "../Components/AdminTools";
+import FindMe from "../Components/FindMe";
 // Import handleGetRequests from your API file
 
 const AdminToolsPage = () => {
@@ -22,9 +22,12 @@ const AdminToolsPage = () => {
       navigate("/adminlogin");
     }
   }, []);
-  
+
   return (
     <div className={styles.dashboard}>
+      <div className={styles.contactMe}>
+        <FindMe />
+      </div>
       <SiderBar />
       <AdminTools />
     </div>

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import AddProject from "../Components/AddProject";
 import SiderBar from "../Components/SiderBar";
+import FindMe from "../Components/FindMe";
 
 export default function AdminAddProjectPage() {
   const navigate = useNavigate();
@@ -25,6 +26,9 @@ export default function AdminAddProjectPage() {
   return (
     <div>
       <div className={styles.dashboard}>
+        <div className={styles.contactMe}>
+          <FindMe />
+        </div>
         <SiderBar />
         <AddProject />
       </div>

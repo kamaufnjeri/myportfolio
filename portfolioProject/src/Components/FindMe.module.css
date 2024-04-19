@@ -63,3 +63,16 @@ a img {
         justify-content: space-between;
     }
 }
+@media screen and (max-height: 500px) and (min-width: 550px) {
+    .findMe {
+        overflow-y: auto;
+        height: 240px;
+    }
+}
+
+@media screen and (max-height: 350px) and (min-width: 550px) {
+    .findMe {
+        overflow-y: auto;
+        height: 160px;
+    }
+}

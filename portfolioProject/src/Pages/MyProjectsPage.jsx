@@ -37,7 +37,7 @@ const MyProjectsPage = () => {
   };
   useEffect(() => {
     setIsLoading(true);
-    const pollingInterval = 10000; // Initial polling interval (10 seconds)
+    const pollingInterval = 1000;
     const intervalId = setInterval(fetchData, retries > 0 ? pollingInterval * Math.pow(2, retries) : pollingInterval);
     // Cleanup function to clear the interval on component unmount
     return () => clearInterval(intervalId);
@@ -56,11 +56,12 @@ const MyProjectsPage = () => {
             innovative initiatives to collaborative endeavors, each
             represents a milestone in my pursuit of excellence
           </p>
-          <MyProjectsList projects={data} />
+          {data && <MyProjectsList projects={data} />}
+          {error && <p>{error}</p>}
           <div>
             <Link to='/contact'><span className={styles.btn}>Contact <FontAwesomeIcon icon={faArrowRight} /></span></Link>
           </div>
-          {error && <p>{error}</p>}
+          
         </div>
 
       </div>

@@ -3,8 +3,8 @@ import AdminBlogs from '../Components/AdminBlogs';
 import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
-import { handleGetRequests } from "../Methods/handleApiRequests";
 import { useNavigate } from 'react-router-dom';
+import FindMe from '../Components/FindMe';
 
 const AdminBlogsPage = () => {
   const navigate = useNavigate();
@@ -21,9 +21,12 @@ const AdminBlogsPage = () => {
       navigate("/adminlogin");
     }
   }, []);
-  
+
   return (
     <div className={styles.dashboard}>
+      <div className={styles.contactMe}>
+        <FindMe />
+      </div>
       <SiderBar />
       <AdminBlogs />
     </div>

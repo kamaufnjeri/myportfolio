@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-import { handleGetRequests } from "../Methods/handleApiRequests";
 import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
 import UpdateBlog from '../Components/UpdateBlog';
+import FindMe from '../Components/FindMe';
 
 const AdminUpdateBlogPage = () => {
   const navigate = useNavigate();
@@ -25,6 +25,9 @@ const AdminUpdateBlogPage = () => {
   return (
     <div>
       <div className={styles.dashboard}>
+      <div className={styles.contactMe}>
+          <FindMe />
+        </div>
         <SiderBar />
         <UpdateBlog />
       </div>

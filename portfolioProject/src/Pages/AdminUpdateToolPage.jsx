@@ -4,17 +4,13 @@ import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
 import UpdateTools from "../Components/UpdateTools";
+import FindMe from "../Components/FindMe";
 
 export default function AdminUpdateToolPage() {
   const navigate = useNavigate();
   // make this route protected using useEffect
   const [token, setToken] = useState(null);
 
-  //set token
-  useEffect(() =>{
-    const tokened = localStorage.getItem('jwtToken');
-    setToken(tokened ? tokened : '');
-  }, [setToken]);
   useEffect(() => {
     try {
       const token = localStorage.getItem('jwtToken');
@@ -31,8 +27,11 @@ export default function AdminUpdateToolPage() {
   return (
     <div>
       <div className={styles.dashboard}>
+        <div className={styles.contactMe}>
+          <FindMe />
+        </div>
         <SiderBar />
-        <UpdateTools token={token}/>
+        <UpdateTools />
       </div>
     </div>
   );
