@@ -93,7 +93,15 @@ a {
 }
 @media screen and (max-height: 600px) and (max-width: 550px) {
     .aboutinfo {
+        overflow-y: auto;
+        height: 300px;
+    }
+}
+@media screen and (max-height: 470px) and (max-width: 550px) {
+    .aboutinfo {
         height: 150px;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 }
 @media screen and (max-height: 600px) and (min-width: 550px) {
