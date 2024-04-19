@@ -91,13 +91,18 @@ a {
         width: 100vw;
     }
 }
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 600px) and (max-width: 550px) {
+    .aboutinfo {
+        height: 150px;
+    }
+}
+@media screen and (max-height: 600px) and (min-width: 550px) {
     .aboutinfo {
         overflow-y: auto;
         height: 300px;
     }
 }
-@media screen and (max-height: 480px) {
+@media screen and (max-height: 480px) and (min-width: 550px) {
     .aboutinfo {
         margin-top: 90px;
         height: 200px;
