@@ -1,10 +1,20 @@
 .notFound {
     position: absolute;
-    top: 13vh;
-    left: 0;
+    top: 90px;
+    left: 90px;
 }
 .notFound img {
     width: 90vw;
-    max-height: calc(100vh - 16vh);
+    max-height: calc(100vh - 90px);
 }
 
+@media  screen and (max-width: 550px) {
+    .notFound {
+        left: 0;
+        top: 180px;
+    }
+    .notFound img {
+        width: 100vw;
+        max-height: calc(100vh - 180px);
+    }
+}
