@@ -14,7 +14,7 @@
 @media screen and (max-width: 550px) {
     .mainContentStyle {
         margin-top: 200px;
-        margin-left: 0;
+        margin-left: 20px;
         width: 90vw;
     }
     
