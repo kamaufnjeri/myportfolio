@@ -189,19 +189,13 @@ img {
         width: 90vw;
         padding: 10px;
     }
-    .blogHeader {
+    .blogHeader, .blogBody {
         width: 90vw;
         padding: 10px;
         justify-content: flex-start;
         align-items: flex-start;
         word-wrap: break-word;
         margin-left: -20px;
-    }
-    .blogBody {
-        width: 90vw;
-        display: flex;
-        align-items: center;
-        justify-items: center;
     }
     .blogHeader h3 {
         font-size: 30px;
