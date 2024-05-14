@@ -199,6 +199,9 @@ img {
     }
     .blogBody {
         width: 90vw;
+        display: flex;
+        align-items: center;
+        justify-items: center;
     }
     .blogHeader h3 {
         font-size: 30px;
