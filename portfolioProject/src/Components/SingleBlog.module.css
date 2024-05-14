@@ -197,6 +197,9 @@ img {
         word-wrap: break-word;
         margin-left: -20px;
     }
+    .blogBody {
+        width: 90vw;
+    }
     .blogHeader h3 {
         font-size: 30px;
        
