@@ -33,7 +33,7 @@ mongoose
 // Allow requests from fronten
 console.log(FRONTEND_URL)
 app.use(cors({
-  origin: FRONTEND_URL,
+  origin: [FRONTEND_URL, "https://www.flozzykamau.tech/"],
   credentials: true,
 }));
 
