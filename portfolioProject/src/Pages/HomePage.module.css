@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: calc(90vw - 80px);
     height: 400px;
     color: #fff;
@@ -47,7 +47,7 @@
     color: #fff;
 }
 .aboutheader h2 span {
-    color: #6a0dad;
+    color: rgb(219, 10, 97);
 }
 .aboutheader h3 {
     color: #f9a825;
@@ -60,14 +60,23 @@
     border-radius: 5px;
     border: 2px solid #6a0dad;
     padding: 5px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
     color: #6a0dad;
     background: transparent;
     cursor: pointer;
     text-decoration: none;
 }
-
+.btn:nth-child(1) {
+    width: 200px;
+    margin-top: -5px;
+}
+.homeBtn {
+   display: flex;
+   gap: 20px;
+   flex-flow: row wrap;
+    
+}
 .btn:hover {
     background: #6a0dad;
     color: #fff;
