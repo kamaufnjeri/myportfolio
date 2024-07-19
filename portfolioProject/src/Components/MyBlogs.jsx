@@ -55,7 +55,7 @@ const MyBlogs = () => {
           </div>
           <div className={styles.projectInfo}>
             <h1>{blog.title}</h1>
-            <p>Posted on {dayjs(data.createdAt).format('MMMM D, YYYY HH:mm')} . . .</p>
+            <p>Posted on {dayjs(blog.createdAt).format('MMMM D, YYYY HH:mm')} . . .</p>
             <br />
             <div>
               <Link to={`/blogs/${blog._id}`} className={styles.btn}>View More <FontAwesomeIcon icon={faArrowRight} /></Link>
