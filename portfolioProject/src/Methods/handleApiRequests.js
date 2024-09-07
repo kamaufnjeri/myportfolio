@@ -3,7 +3,7 @@ import axios from "axios";
 // Define the backend URL using environment variables
 const BACKEND_URL =
   import.meta.env.VITE_REACT_APP_BACKEND_URL ||
-  "https://myportfolio-y9w4.onrender.com";
+  "http://localhost:3000";
 
 // Optional default headers (including Authorization with JWT token if available)
 axios.defaults.headers.common = {

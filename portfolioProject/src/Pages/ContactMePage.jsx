@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 import { handlePostRequests } from "../Methods/handleApiRequests";
 import Loading from "../Components/Loading";
 import { Link } from "react-router-dom";
-import FindMe from "../Components/FindMe";
+import FindMe from "../Components/shared/FindMe";
+import GoToButton from "../Components/shared/GoToButton";
 
 const ContactMePage = () => {
   // usestate to handle form data
@@ -57,17 +58,16 @@ const ContactMePage = () => {
   };
 
   return (
-    <div className={styles.background}>
-      <div className={styles.mainContainer}>
-        <FindMe />
-        {isLoading && <Loading />}
+        
         <div className={styles.contactBox}>
+          {isLoading && <Loading />}
           <h1>Contact me</h1>
           <p>
             Feel free to get in touch with me if you have any questions, feedback,
             or just want to say hello!
           </p>
           <form onSubmit={(e) => handleSubmit(e)} className={styles.formBox}>
+            <div className={styles.inputBox}>
             <input
               onChange={(e) => setData({ ...data, name: e.target.value })}
               type="text"
@@ -82,6 +82,8 @@ const ContactMePage = () => {
               value={data.email}
               placeholder="Enter your email"
             />
+            </div>
+            
             <textarea
               onChange={(e) => setData({ ...data, message: e.target.value })}
               type="text"
@@ -95,12 +97,9 @@ const ContactMePage = () => {
             </button>
           </form>
           <div>
-            <Link to='/blogs'><span className={styles.btn}>Blogs <FontAwesomeIcon icon={faArrowRight} /></span></Link>
-          </div>
+              <GoToButton name='Blogs' url='/blogs'/>
+            </div>
         </div>
-
-      </div>
-    </div>
 
   );
 };

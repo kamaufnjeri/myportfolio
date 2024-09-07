@@ -54,7 +54,7 @@ const MyBlogs = () => {
             </div>
           </div>
           <div className={styles.projectInfo}>
-            <h1>{blog.title}</h1>
+            <h3 className={styles.title}>{blog.title}</h3>
             <p>Posted on {dayjs(blog.createdAt).format('MMMM D, YYYY HH:mm')} . . .</p>
             <br />
             <div>

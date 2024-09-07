@@ -49,12 +49,13 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
   }
   return (
     <div className={styles.modalbox} ref={modalRef} onClick={closeModal}>
-      <div className={styles.projectcontent} ref={projectRef}>
+      <div className={styles.projectcontentBox} ref={projectRef}>
         <div className={styles.header}>
           {/* Apply animation only when modal is open */}
           <h2 className={isOpen ? styles.appearAnimation : ""}>{project.title}</h2>
           <span onClick={onClose} className={isOpen ? styles.appearAnimation : ""}>&#10006;</span>
         </div>
+        <div className={styles.projectcontent}>
         <div className={descriptionStyle}>
           <h4>About the project: </h4>
           <p>{project.description}</p>
@@ -87,6 +88,8 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
             <p>{project.lessonsLearnt}</p>
           </div>
         }
+        </div>
+        
       </div>
     </div>
   )

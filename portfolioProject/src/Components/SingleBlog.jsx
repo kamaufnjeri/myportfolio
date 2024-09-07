@@ -5,7 +5,7 @@ import styles from './SingleBlog.module.css';
 import  dayjs from 'dayjs';
 import { toast } from 'react-toastify';
 import Loading from './Loading';
-import FindMe from './FindMe';
+import FindMe from './shared/FindMe';
 
 const SingleBlog = () => {
 // Using state for getting blog

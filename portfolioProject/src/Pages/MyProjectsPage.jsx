@@ -3,10 +3,11 @@ import MyProjectsList from '../Components/MyProjectsList';
 import Loading from '../Components/Loading';
 import styles from './MyProjectsPage.module.css'
 import { handleGetRequests } from '../Methods/handleApiRequests';
-import FindMe from '../Components/FindMe';
+import FindMe from "../Components/shared/FindMe";
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import GoToButton from '../Components/shared/GoToButton';
 
 const MyProjectsPage = () => {
   // Using state for getting projects
@@ -44,11 +45,9 @@ const MyProjectsPage = () => {
   }, []); // Empty dependency array to ensure useEffect runs only once
   
   return (
-    <div className={styles.background}>
-      {isLoading && <Loading/>}
-      <div className={styles.mainContainer}>
-        <FindMe />
+         
         <div className={styles.myprojects}>
+          {isLoading && <Loading/>}
           <h1>My projects</h1>
           <p>
             Explore a showcase of my ALX journey over the past year,
@@ -59,13 +58,12 @@ const MyProjectsPage = () => {
           {data && <MyProjectsList projects={data} />}
           {error && <p>{error}</p>}
           <div>
-            <Link to='/contact'><span className={styles.btn}>Contact <FontAwesomeIcon icon={faArrowRight} /></span></Link>
+          <GoToButton name='Contact me' url='/contact'/>
           </div>
           
         </div>
 
-      </div>
-    </div>
+
   );
 };
 

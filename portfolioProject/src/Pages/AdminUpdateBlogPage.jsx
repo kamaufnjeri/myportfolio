@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
 import UpdateBlog from '../Components/UpdateBlog';
-import FindMe from '../Components/FindMe';
+import FindMe from "../Components/shared/FindMe";
 
 const AdminUpdateBlogPage = () => {
   const navigate = useNavigate();

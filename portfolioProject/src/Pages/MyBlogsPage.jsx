@@ -2,17 +2,16 @@ import React, { useEffect, useState } from 'react';
 import MyBlogs from '../Components/MyBlogs'
 import styles from './MyProjectsPage.module.css'
 import { handleGetRequests } from '../Methods/handleApiRequests';
-import FindMe from '../Components/FindMe';
+import FindMe from "../Components/shared/FindMe";
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import GoToButton from '../Components/shared/GoToButton';
 
 const MyBlogsPage = () => {
 
   return (
-    <div className={styles.background}>
-      <div className={styles.mainContainer}>
-        <FindMe />
+    
         <div className={styles.myprojects}>
           <h1>My Blogs</h1>
           <p>
@@ -21,12 +20,10 @@ const MyBlogsPage = () => {
           </p>
           <MyBlogs />
           <div>
-            <Link to='/'><span className={styles.btn}>Home <FontAwesomeIcon icon={faArrowRight} /></span></Link>
+            <GoToButton name='Home' url='/'/>
           </div>
         </div>
 
-      </div>
-    </div>
   );
 };
 

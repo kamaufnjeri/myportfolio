@@ -16,20 +16,23 @@
   transform-origin: right;
   overflow-y: hidden;
 }
-
-.projectcontent {
-  position: absolute;
-  top: 90px;
-  margin: 20px;
-  width: 90vw;
+.projectcontentBox {
+ position: absolute;
+  top: 0;
+  right: 0px;
+  margin: 20px 0 10px;
+  width: 95vw;
   background: #000;
   padding-bottom: 60px;
   border-radius: 5px;
+}
+.projectcontent {
+  margin-top: 60px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-flow: column nowrap;
-  height: 80vh;
+  height: calc(100vh - 80px);
   z-index: 6;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -44,9 +47,9 @@
   background-color: #f9a825; /* Customize thumb background color */
   border-radius: 5px; /* Add rounded corners */
 }
-.projectcontent .header {
+.projectcontentBox .header {
   background: #6a0dad;
-  width: 90vw;
+  width: 95vw;
   height: 60px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -78,7 +81,7 @@
     margin: 20px;
 }
 .projectcontent .description {
-  margin: 80px 20px 20px 20px;
+  margin: 10px 20px 20px 20px;
 }
 .projectcontent .tools,
 .description,
@@ -87,7 +90,7 @@
 .lessonslearnt {
   border-radius: 5px;
   opacity: 0;
-  width: 85vw;
+  width: 92vw;
   display: flex;
   margin: 20px;
   flex-flow: column nowrap;

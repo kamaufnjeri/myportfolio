@@ -20,6 +20,7 @@ import AdminBlogsPage from "./Pages/AdminBlogsPage";
 import AdminUpdateBlogPage from "./Pages/AdminUpdateBlogPage";
 import SingleBlogPage from "./Pages/SingleBlogPage";
 import AboutPage from "./Pages/AboutPage";
+import Layout from "./Components/shared/Layout";
 
 const App = () => {
   return (
@@ -31,11 +32,13 @@ const App = () => {
       />
       <NavBar />
       <Routes>
-          <Route exact path="/" element={<HomePage />} />
+        <Route path='/' element={<Layout/>}>
+          <Route exact index element={<HomePage />} />
           <Route exact path='/about' element={<AboutPage />} />
           <Route exact path="/myprojects" element={<MyProjectsPage />} />
           <Route exact path="/contact" element={<ContactMePage />} />
           <Route exact path="/blogs" element={<MyBlogsPage />} />
+        </Route>
           <Route exact path="/blogs/:id" element={<SingleBlogPage />} />
           <Route exact path="/adminlogin" element={<AdminLoginPage />} />
           <Route exact path="/admindashboard" element={<AdminProjectsPage />} />
@@ -47,6 +50,7 @@ const App = () => {
           <Route exact path="/admindashboard/tools/:id" element={<AdminUpdateToolPage />} />
           <Route exact path="/admindashboard/projects/:id" element={<AdminUpdateProjectPage />} />
           <Route exact path="/admindashboard/blogs/:id" element={<AdminUpdateBlogPage />} />
+          <Route exact path="/trial" element={<Layout/>}/>
           <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

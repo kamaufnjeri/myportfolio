@@ -1,84 +1,37 @@
-.background {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  justify-content: center;
-  background-image: url("https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910973/coding_lrydxw.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  animation: change 60s infinite ease-in-out;
-}
-
-@keyframes change {
-  50% {
-    background-image: url("https://res.cloudinary.com/dpbkthtxd/image/upload/v1713101850/accountant_f2w23o.jpg");
-  }
-  100% {
-    background-image: url("https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910973/coding_lrydxw.jpg");
-  }
-}
-.mainContainer {
-  display: flex;
-  flex-direction: row-reverse; /* Stack elements vertically */
-  align-items: center;
-  justify-content: center;
-  width: calc(100vw - 180px); /* Adjusted width for margins */
-  padding: 10px 20px 10px 10px;
-  text-align: left;
-  background-color: #000; /* Optional background color for the card */
-  opacity: 0.9;
-  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
-  border-radius: 5px; /* Optional rounded corners */
-  z-index: 2;
-  margin-top: calc(10vh + 10px);
-  margin-left: 80px;
-  height: 80vh; /* Set card height explicitly */
-  overflow: hidden; /* Clip content within the card */
-}
 .contactBox {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  overflow-y: scroll;
-  height: 100%;
-  width: 100%;
+  width: 100vw;
   margin-left: 10px;
 }
 
-.contactBox::-webkit-scrollbar {
-  width: 10px; /* Adjust width as desired */
-  border-radius: 5px;
-  background-color: #f5f5f5; /* Customize track background color */
-}
 
-.contactBox::-webkit-scrollbar-thumb {
-  background-color: #f9a825; /* Customize thumb background color */
-  border-radius: 5px; /* Add rounded corners */
-}
 .formBox {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 20px;
-  justify-content: center;
-  width: 80%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 60%;
 }
-
+.inputBox {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  
+}
 .formBox input,
 .formBox textarea {
   border: none;
+  margin: 20px 20px 20px 0;
   outline: none;
-  width: 100%;
-  min-width: 200px;
   padding: 5px;
   font-size: 16px;
   font-weight: 500;
   border: 2px solid #ccc;
   border-radius: 5px;
-  margin: 20px 20px 20px 0;
 }
 .formBox input:focus,
 .formBox textarea:focus {
@@ -86,12 +39,16 @@
 }
 .formBox input {
   height: 50px;
+  width: 40%;
 }
 .formBox textarea {
-  min-height: 30vh;
+  min-height: 22vh;
+  width: 100%;
+  min-width: 200px;
 }
 .sendBtn {
   display: flex;
+  align-self: flex-end;
   width: 350px;
   height: 50px;
   padding: 5px;
@@ -117,22 +74,7 @@
   font-size: 30px;
   color: #f9a825;
 }
-.btn {
-  border-radius: 5px;
-  border: 2px solid #6a0dad;
-  padding: 5px;
-  font-size: 30px;
-  font-weight: 600;
-  color: #6a0dad;
-  background: transparent;
-  cursor: pointer;
-  text-decoration: none;
-}
 
-.btn:hover {
-  background: #6a0dad;
-  color: #fff;
-}
 @media screen and (max-width: 620px) {
   .sendBtn {
     width: 230px;

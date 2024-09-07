@@ -1,0 +1,10 @@
+.imageCont {
+    display: block;
+    margin-right: 10px;
+  }
+  .imageCont img {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 10px solid #f9a825;
+  }

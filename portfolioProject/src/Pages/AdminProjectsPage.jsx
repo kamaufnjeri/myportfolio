@@ -4,7 +4,7 @@ import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
 import { useNavigate } from "react-router-dom";
 import AdminProjects from "../Components/AdminProjects";
-import FindMe from "../Components/FindMe";
+import FindMe from "../Components/shared/FindMe";
 // Import handleGetRequests from your API file
 
 const AdminProjectsPage = () => {

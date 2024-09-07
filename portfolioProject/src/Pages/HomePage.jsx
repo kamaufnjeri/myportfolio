@@ -3,8 +3,9 @@ import styles from "./HomePage.module.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faDownload } from '@fortawesome/free-solid-svg-icons';
-import FindMe from "../Components/FindMe";
 import { handleGetRequests } from "../Methods/handleApiRequests";
+import Image from "../Components/shared/Image";
+import GoToButton from "../Components/shared/GoToButton";
 
 const HomePage = () => {
   // Index of role to display and write word
@@ -73,22 +74,20 @@ const HomePage = () => {
 
   // Render the component
   return (
-    <div className={styles.about}>
-      <FindMe />
-      <div className={styles.aboutinfo}>
-        <div className={styles.aboutheader}>
-          <h2>Hey, I'm <span>Florence</span> Kamau.</h2>
-          {/* Display the current portion of the role */}
-          <h3>{role.substring(0, wordIndex + 1)}|</h3>
-          <div className={styles.homeBtn}>
-            <a href="/Flozzy_Kamau_CV.pdf" download className={styles.btn}>
-              Download CV <FontAwesomeIcon icon={faDownload} />
-            </a>
-            <Link to='/about'><span className={styles.btn}>About me <FontAwesomeIcon icon={faArrowRight} /></span></Link>
-          </div>
+    <div className={styles.aboutinfo}>
+      <Image />
+      <div className={styles.aboutheader}>
+        <h2>Hey, I'm <span>Florence</span> Kamau.</h2>
+        {/* Display the current portion of the role */}
+        <h3>{role.substring(0, wordIndex + 1)}|</h3>
+        <div className={styles.homeBtn}>
+          <a href="/Flozzy_Kamau_CV.pdf" download className={styles.btn}>
+            Download CV <FontAwesomeIcon icon={faDownload} />
+          </a>
+          <GoToButton name='About me' url='/about'/>
         </div>
-
       </div>
+
     </div>
   );
 };

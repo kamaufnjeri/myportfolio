@@ -1,6 +1,6 @@
 import React from 'react'
 import SingleBlog from '../Components/SingleBlog';
-import FindMe from '../Components/FindMe';
+import FindMe from '../Components//shared/FindMe';
 import styles from './SingleBlogPage.module.css';
 
 

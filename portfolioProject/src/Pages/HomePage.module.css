@@ -1,55 +1,16 @@
-.about {
-    display: flex;
-    align-items: center;
-    position: relative;
-    min-height: 100vh;
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    background-image: url('https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910973/coding_lrydxw.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation: change 60s infinite ease-in-out;
-}
 
-@keyframes change {
-    50% {
-        background-image: url('https://res.cloudinary.com/dpbkthtxd/image/upload/v1713101850/accountant_f2w23o.jpg');  
-    }
-    100% {
-        background-image: url('https://res.cloudinary.com/dpbkthtxd/image/upload/v1707910973/coding_lrydxw.jpg');
-
-    }
-  
-}
 .aboutinfo {
     display: flex;
-    flex-direction: row;
+    flex-flow: row;
     align-items: center;
     justify-content: center;
-    width: calc(90vw - 80px);
-    height: 400px;
-    color: #fff;
-    margin-left: 80px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.3);
+    transform: translateY(10%);
 }
-.aboutinfo::-webkit-scrollbar {
-    width: 10px; /* Adjust width as desired */
-    border-radius: 5px;
-    background-color: #f5f5f5; /* Customize track background color */
-}
-.aboutinfo::-webkit-scrollbar-thumb {
-    background-color: #f9a825; /* Customize thumb background color */
-    border-radius: 5px; /* Add rounded corners */
-}
-
 .aboutheader {
     margin: 20px;
     display: flex;
     flex-direction: column;
     text-align: left;
-    
 }
 .aboutheader h2 {
     font-weight: bolder;

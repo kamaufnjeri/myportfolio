@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./NotFoundPage.module.css";
-import FindMe from "../Components/FindMe";
+import FindMe from "../Components/shared/FindMe";
 
 export default function NotFoundPage() {
   return (

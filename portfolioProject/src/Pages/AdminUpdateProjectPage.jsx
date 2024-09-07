@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import styles from "./AdminAddProjectPage.module.css";
 import SiderBar from "../Components/SiderBar";
 import UpdateProject from "../Components/UpdateProject";
-import FindMe from "../Components/FindMe";
+import FindMe from "../Components/shared/FindMe";
 
 export default function AdminUpdateProjectPage() {
   const navigate = useNavigate();
