@@ -1,10 +1,7 @@
 import axios from "axios";
 
 // Define the backend URL using environment variables
-const BACKEND_URL =
-  import.meta.env.VITE_REACT_APP_BACKEND_URL ||
-  "http://localhost:3000";
-
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL 
 // Optional default headers (including Authorization with JWT token if available)
 axios.defaults.headers.common = {
   Authorization: localStorage.getItem("jwtToken") ? `Bearer ${localStorage.getItem("jwtToken")}` : "",
