@@ -2,9 +2,10 @@
 .aboutinfo {
     display: flex;
     flex-flow: row;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(10%);
+   width: 100%;
+   height: 100%;
+   align-items: center;
+   justify-content: center;
 }
 .aboutheader {
     margin: 20px;
