@@ -5,6 +5,7 @@
   align-items: flex-start;
   width: 100vw;
   margin-left: 10px;
+  margin-bottom: 70px;
 }
 
 
@@ -12,20 +13,23 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 60%;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
 }
 .inputBox {
   display: flex;
   flex-flow: row;
   width: 100%;
-  
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
 }
+
 .formBox input,
 .formBox textarea {
   border: none;
-  margin: 20px 20px 20px 0;
+  margin-bottom: 20px;
   outline: none;
   padding: 5px;
   font-size: 16px;
@@ -39,7 +43,7 @@
 }
 .formBox input {
   height: 50px;
-  width: 40%;
+  width: 50%;
 }
 .formBox textarea {
   min-height: 22vh;
@@ -75,45 +79,15 @@
   color: #f9a825;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 500px) {
+  .inputBox {
+    flex-flow: column;
+  }
+  .inputBox  input {
+    width: 100%;
+  }
   .sendBtn {
-    width: 230px;
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 550px) {
-  .mainContainer {
-    margin-top: 150px;
-    height: calc(80vh - 40px);
-    margin-left: 0;
-    width: 100vw;
-  }
-}
-@media screen and (max-height: 650px) {
-  .mainContainer {
-    height: 400px;
-  }
-}
-@media screen and (max-height: 500px) {
-  .mainContainer {
-    height: 300px;
-  }
-}
-@media screen and (max-height: 410px) {
-  .mainContainer {
-    height: 200px;
-  }
-}
-
-@media screen and (max-height: 350px) {
-  .mainContainer {
-    height: 150px;
-  }
-}
-@media screen and (max-width: 300px) {
-  .formBox input,
-  .formBox textarea,
-  .sendBtn {
-    width: 150px;
-  }
-}

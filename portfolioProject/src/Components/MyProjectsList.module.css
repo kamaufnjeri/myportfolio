@@ -5,6 +5,7 @@
   margin-top: 10px;
   align-items: center;
   flex-flow: row wrap;
+  text-align: justify;
 }
 h3.title {
   color: #ff4081;
@@ -20,6 +21,7 @@ h3.title {
 }
 .projectInfo {
     width: 70%;
+    padding: 10px;
 }
 .btn {
   margin-top: 10px;
@@ -39,10 +41,9 @@ h3.title {
   color: #fff;
 }
 .cardbox {
-  width: 40vw;
+  width: 30%;
   height: auto;
   margin: 10px 20px 10px 10px;
-
   border-radius: 5px;
   position: relative;
   cursor: pointer;
@@ -99,22 +100,24 @@ h3.title {
   cursor: pointer;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 900px) {
+  .cardbox {
+    width: 80%;
+  }
+  .projectInfo {
+    width: 100%;
+  }
   .myprojectsbox {
     flex-direction: column;
   }
   .projectBox {
     flex-direction: column;
   }
-  .cardbox {
-    width: 50vw;
-  }
+ 
 }
 
 @media screen and (max-width: 500px) {
-  .cardbox {
-    width: 70vw;
-  }
+ 
   .cardbox .namecontainer {
     font-size: 13px;
   }

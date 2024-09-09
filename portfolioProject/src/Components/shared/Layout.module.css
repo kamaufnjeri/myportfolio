@@ -38,6 +38,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     padding: 10px;
+    overflow-x: hidden;
     overflow-y: auto;
     height: calc(100vh - 60px);
  }
@@ -52,3 +53,12 @@
     background-color: #f9a825;
     border-radius: 5px; 
   }
+
+  @media screen and (max-width: 550px) {
+    .scrollContainer {
+        margin-top: 120px;
+        margin-left: 0;
+        height: calc(100vh - 120px);
+    }
+    
+}

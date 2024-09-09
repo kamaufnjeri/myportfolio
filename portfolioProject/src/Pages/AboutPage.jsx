@@ -20,7 +20,6 @@ const AboutPage = () => {
 
   return (
     <div className={styles.aboutme}>
-     
       <div className={styles.aboutmeinfo}>
       <Image/>
         <div className={styles.aboutmetext}>

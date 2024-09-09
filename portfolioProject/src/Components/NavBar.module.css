@@ -103,7 +103,7 @@ a.navlink {
         justify-content: flex-end;
         padding: 10px 20px 20px 20px;
         position: absolute;
-        top: 80px;
+        top: 60px;
         height: 260px;
         border-radius: 3px;
         z-index: 3;
@@ -132,7 +132,7 @@ a.navlink {
 
 @media screen and (max-width: 550px) {
     .navbar {
-        top: 80px;
+        top: 60px;
     }
     
 }

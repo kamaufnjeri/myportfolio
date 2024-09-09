@@ -4,14 +4,15 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0 10px;
+  margin-bottom: 60px;
   text-align: left;
 }
 
 .aboutmeinfo {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start; 
+  justify-content: space-between;
+  align-items: center; 
 }
 
 h1 {
@@ -30,7 +31,7 @@ p {
 .myLists {
   display: flex;
   flex-flow: row wrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   margin-bottom: 20px;
 }
@@ -46,52 +47,18 @@ p {
   cursor: pointer;
 }
 
-
-@media screen and (max-width: 900px) {
-  .aboutme {
-    flex-direction: column;
-  }
+@media screen and (max-width: 1000px) {
   .aboutmeinfo {
-    flex: 1;
-  }
-  .imageCont {
-    display: none;
+    flex-flow: column;
   }
 }
-
 @media screen and (max-width: 550px) {
-
-  .aboutme {
-    width: 100vw;
-    margin-top: 60px;
-    height: calc(80vh - 30px);
-  }
+  
   h1 {
     font-size: 30px;
   }
   p,
   .myLists span {
     font-size: 16px;
-  }
-}
-@media screen and (max-height: 650px) {
-  .mainContainer, .aboutme {
-    height: 400px;
-  }
-}
-@media screen and (max-height: 500px) {
-  .mainContainer, .aboutme {
-    height: 300px;
-  }
-}
-@media screen and (max-height: 410px) {
-  .mainContainer, .aboutme {
-    height: 200px;
-  }
-}
-
-@media screen and (max-height: 350px) {
-  .mainContainer, .aboutme {
-    height: 150px;
   }
 }

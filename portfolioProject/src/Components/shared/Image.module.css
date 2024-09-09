@@ -8,3 +8,17 @@
     border-radius: 50%;
     border: 10px solid #f9a825;
   }
+
+  @media screen and (max-width: 750px) {
+    .imageCont img {
+      width: 300px;
+      height: 300px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+  .imageCont img {
+    width: 200px;
+    height: 200px;
+  }
+}

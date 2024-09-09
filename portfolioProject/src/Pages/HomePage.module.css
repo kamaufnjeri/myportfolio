@@ -15,7 +15,7 @@
 }
 .aboutheader h2 {
     font-weight: bolder;
-    font-size: 60px;
+    font-size: 40px;
     color: #fff;
 }
 .aboutheader h2 span {
@@ -24,7 +24,7 @@
 .aboutheader h3 {
     color: #f9a825;
     font-weight: bolder;
-    font-size: 40px;
+    font-size:30px;
     height: 90px;
     margin-bottom: 20px;
 }
@@ -46,8 +46,7 @@
 .homeBtn {
    display: flex;
    gap: 20px;
-   flex-flow: row wrap;
-    
+   flex-flow: row wrap;    
 }
 .btn:hover {
     background: #6a0dad;
@@ -57,46 +56,24 @@ a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 700px) {
-    .aboutheader h2 {
-        font-size: 40px;
-    }
-    .aboutheader h3 {
-        font-size: 30px;
+@media screen and (max-width: 750px) {
+    .aboutinfo {
+        flex-flow: column;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 }
 @media screen and (max-width: 550px) {
     .aboutinfo {
         margin-left: 0;
-        margin-top: 150px;
+        margin-top: 0px;
         width: 100vw;
     }
 }
-@media screen and (max-height: 600px) and (max-width: 550px) {
-    .aboutinfo {
-        overflow-y: auto;
-        height: 300px;
-    }
-}
-@media screen and (max-height: 470px) and (max-width: 550px) {
-    .aboutinfo {
-        height: 150px;
-        align-items: flex-start;
-        justify-content: flex-start;
-    }
-}
-@media screen and (max-height: 600px) and (min-width: 550px) {
-    .aboutinfo {
-        overflow-y: auto;
-        height: 300px;
-    }
-}
-@media screen and (max-height: 480px) and (min-width: 550px) {
-    .aboutinfo {
-        margin-top: 90px;
-        height: 200px;
-        align-items: flex-start;
-        justify-content: flex-start;
-    }
-}
 
+
+@media screen and (max-width: 450px) {
+    .homeBtn {
+        margin-bottom: 70px;
+    }
+}
