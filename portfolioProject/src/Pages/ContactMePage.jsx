@@ -58,48 +58,60 @@ const ContactMePage = () => {
   };
 
   return (
-        
-        <div className={styles.contactBox}>
-          {isLoading && <Loading />}
-          <h1>Contact me</h1>
-          <p>
-            Feel free to get in touch with me if you have any questions, feedback,
-            or just want to say hello!
-          </p>
-          <form onSubmit={(e) => handleSubmit(e)} className={styles.formBox}>
-            <div className={styles.inputBox}>
+
+    <div className={styles.contactBox}>
+      {isLoading && <Loading />}
+      <h1>Contact me</h1>
+      <p>
+        Feel free to get in touch with me if you have any questions, feedback,
+        or just want to say hello!
+      </p>
+      <form onSubmit={(e) => handleSubmit(e)} className={styles.formBox}>
+          <div className={styles.inputCont}>
+            <label htmlFor="name">Name</label>
             <input
               onChange={(e) => setData({ ...data, name: e.target.value })}
               type="text"
+              name="name"
               required
               value={data.name}
               placeholder="Enter your name"
             />
+          </div>
+          <div className={styles.inputCont}>
+            <label htmlFor="email">Email</label>
+
             <input
               onChange={(e) => setData({ ...data, email: e.target.value })}
               type="text"
               required
+              name="email"
               value={data.email}
               placeholder="Enter your email"
             />
-            </div>
-            
-            <textarea
-              onChange={(e) => setData({ ...data, message: e.target.value })}
-              type="text"
-              required
-              value={data.message}
-              placeholder="Enter the message..."
-            ></textarea>
-            <button className={styles.sendBtn}>
-              <FontAwesomeIcon icon={faPaperPlane} className={styles.sendIcon} />
-              Send
-            </button>
-          </form>
-          <div>
-              <GoToButton name='Blogs' url='/blogs'/>
-            </div>
         </div>
+        <div className={styles.inputCont}>
+          <label htmlFor="message">Message</label>
+
+          <textarea
+            onChange={(e) => setData({ ...data, message: e.target.value })}
+            type="text"
+            required
+            name="message"
+            value={data.message}
+            placeholder="Enter the message..."
+          ></textarea>
+        </div>
+
+        <button className={styles.sendBtn}>
+          <FontAwesomeIcon icon={faPaperPlane} className={styles.sendIcon} />
+          Send
+        </button>
+      </form>
+      <div>
+        <GoToButton name='Blogs' url='/blogs' />
+      </div>
+    </div>
 
   );
 };
