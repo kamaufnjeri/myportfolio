@@ -9,6 +9,8 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
   const projectRef = useRef(null);
   const [tools, setTools] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [iframeKey, setIframeKey] = useState(0);
+
   const maxIndex = 3;
 
 
@@ -62,6 +64,7 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
       onClose();
       setCurrentIndex(0);
     }
+    setIframeKey((prevKey) => prevKey + 1);
   }
   return (
     <div className={styles.modalbox} ref={modalRef} onClick={closeModal}>
@@ -96,7 +99,7 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
           <div className={styles.mainBox}>
             <div className={styles.contentBox}>
               <h4>Project video :</h4>
-              {project.videoUrl && <div className={styles.videoBox} dangerouslySetInnerHTML={{ __html: project.videoUrl }}></div>}
+              {project.videoUrl && <div key={iframeKey}className={styles.videoBox} dangerouslySetInnerHTML={{ __html: project.videoUrl }}></div>}
             </div>
           </div>
         
