@@ -10,6 +10,7 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
   const [tools, setTools] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [videoSrc, setVideoSrc] = useState(project.videoUrl);
+  const iframeRef = useRef(null);
 
   const maxIndex = 3;
 
@@ -63,8 +64,12 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
     if (!projectRef.current.contains(e.target)) {
       onClose();
       setCurrentIndex(0);
+      setVideoSrc('about:blank'); 
+       // Set to blank page to stop video
+       if (iframeRef.current) {
+        iframeRef.current.src = ''
+       }
     }
-    setVideoSrc('');
   }
   return (
     <div className={styles.modalbox} ref={modalRef} onClick={closeModal}>
@@ -99,8 +104,16 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
           <div className={styles.mainBox}>
             <div className={styles.contentBox}>
               <h4>Project video :</h4>
-              {project.videoUrl && <div className={styles.videoBox}>
-              <iframe width="813" height="457" src={videoSrc} title="Project Demo Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              {videoSrc && <div className={styles.videoBox}>
+              <iframe ref={iframeRef}
+            width="560"
+            height="315"
+            src={videoSrc} // Use dynamic src value
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="YouTube video player"
+          ></iframe>
                 </div>}
             </div>
           </div>
