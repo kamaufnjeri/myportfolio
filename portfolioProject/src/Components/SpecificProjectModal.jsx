@@ -76,13 +76,15 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
 
 
 
-
-  const closeModal = (e) => {
-    stop()
+  const close = () => {
+    stop();
     setCurrentIndex(0);
-
+    onClose();
+  }
+  const closeModal = (e) => {
+   
     if (!projectRef.current.contains(e.target)) {
-      onClose();
+      close()
       
     }
   }
@@ -91,7 +93,7 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
       <div className={styles.projectcontentBox} ref={projectRef}>
         <div className={styles.header}>
           <h2 className={isOpen ? styles.appearAnimation : ""}>{project.title}</h2>
-          <span onClick={onClose} className={isOpen ? styles.appearAnimation : ""}>&#10006;</span>
+          <span onClick={() =>close()} className={isOpen ? styles.appearAnimation : ""}>&#10006;</span>
         </div>
         <div className={styles.projectOuterBox}>
           <button onClick={() => slideLeft()} className={styles.leftArrow}>
