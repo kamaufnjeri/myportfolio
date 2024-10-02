@@ -10,24 +10,37 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
   const [tools, setTools] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [videoSrc, setVideoSrc] = useState(project.videoUrl);
-  const iframeRef = useRef(null);
-
+  const videoRef = useRef(null)
   const maxIndex = 3;
 
-
-
+  const stop = () => {
+    const iframe = videoRef.current; 
+    if (iframe) {
+      const iframeSrc = iframe.src; 
+      iframe.src = iframeSrc; 
+    }
+  };
   const slideRight = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === maxIndex ? 0 : prevIndex + 1
     );
-    console.log(currentIndex * 100)
+    stop()
+
   };
 
   const slideLeft = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? maxIndex : prevIndex - 1
     );
+    stop();
   };
+  
+  
+  useEffect(() => {
+    if (isOpen) {
+      setVideoSrc(project.videoUrl); // Reset the videoSrc when modal opens
+    }
+  }, [isOpen, project])
 
 
   useEffect(() => {
@@ -59,16 +72,17 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
 
     fetchTools();
   }, [project]);
+  
+
+
+
 
   const closeModal = (e) => {
+    stop()
     if (!projectRef.current.contains(e.target)) {
-      onClose();
       setCurrentIndex(0);
-      setVideoSrc('about:blank'); 
-       // Set to blank page to stop video
-       if (iframeRef.current) {
-        iframeRef.current.src = ''
-       }
+      onClose();
+      
     }
   }
   return (
@@ -105,8 +119,10 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
             <div className={styles.contentBox}>
               <h4>Project video :</h4>
               {videoSrc && <div className={styles.videoBox}>
-              <iframe ref={iframeRef}
+              <iframe 
+              ref={videoRef}
             width="560"
+            id='videoId'
             height="315"
             src={videoSrc} // Use dynamic src value
             frameBorder="0"
