@@ -79,8 +79,9 @@ const SpecificProjectModal = ({ project, isOpen, onClose }) => {
 
   const closeModal = (e) => {
     stop()
+    setCurrentIndex(0);
+
     if (!projectRef.current.contains(e.target)) {
-      setCurrentIndex(0);
       onClose();
       
     }
